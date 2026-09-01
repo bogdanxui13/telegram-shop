@@ -7,7 +7,7 @@ const products = [
         category: "new",
         popular: true,
         sale: false,
-        image: "images/product1.jpg",
+        image: "image: "/telegram-shop/images/product1.jpg",",
         description: "Минималистичный товар в чёрном цвете."
     },
     {
