@@ -552,109 +552,13 @@ display: block;
     </button>
 </div>
 </div>
+<script src="products.js"></script>
 <script>
     const tg = window.Telegram.WebApp;
     tg.ready();
     tg.expand();
     /* PRODUCTS */
-    const products = [
-        {
-            id: 1,
-            name: "ДЕД ЛЕВИНА",
-            price: 413414990,
-            stock: 7,
-            category: "new",
-            popular: true,
-            sale: false,
-            image: "https://picsum.photos/600/600?random=21",
-            description:
-                "Минималистичный товар в чёрном цвете. Подробное описание товара можно будет заменить на твоё."
-        },
-        {
-            id: 2,
-            name: "АДЛ",
-            price: 5490,
-            stock: 3,
-            category: "popular",
-            popular: true,
-            sale: false,
-            image: "https://picsum.photos/600/600?random=22",
-            description:
-                "Стильная модель с акцентом на фиолетовые оттенки. Здесь будет подробная информация о товаре."
-        },
-        {
-            id: 3,
-            name: "Pink Edition",
-            price: 3990,
-            stock: 12,
-            category: "sale",
-            popular: false,
-            sale: true,
-            image: "https://picsum.photos/600/600?random=23",
-            description:
-                "Яркий вариант для тех, кто любит розовые оттенки. Описание можно заменить на характеристики товара."
-        },
-        {
-            id: 4,
-            name: "Dark Premium",
-            price: 6990,
-            stock: 2,
-            category: "popular",
-            popular: true,
-            sale: false,
-            image: "https://picsum.photos/600/600?random=24",
-            description:
-                "Премиальная модель в тёмном исполнении. Подробности, характеристики и комплектацию добавим позже."
-        },
-        {
-            id: 5,
-            name: "Midnight",
-            price: 4490,
-            stock: 8,
-            category: "new",
-            popular: false,
-            sale: false,
-            image: "https://picsum.photos/600/600?random=25",
-            description:
-                "Новая модель в минималистичном дизайне."
-        },
-        {
-            id: 6,
-            name: "Neon Pink",
-            price: 3290,
-            stock: 1,
-            category: "sale",
-            popular: false,
-            sale: true,
-            image: "https://picsum.photos/600/600?random=26",
-            description:
-                "Осталась последняя единица. Яркий дизайн и аккуратная форма."
-        },
-        {
-            id: 7,
-            name: "Violet",
-            price: 3790,
-            stock: 6,
-            category: "popular",
-            popular: true,
-            sale: false,
-            image: "https://picsum.photos/600/600?random=27",
-            description:
-                "Модель в насыщенном фиолетовом исполнении."
-        },
-        {
-            id: 8,
-            name: "Black Basic",
-            price: 2990,
-            stock: 15,
-            category: "new",
-            popular: false,
-            sale: false,
-            image: "https://picsum.photos/600/600?random=28",
-            description:
-"Базовая модель на каждый день."
-        }
-    ];
+   
     let currentCategory = "all";
     let currentProduct = null;
     let quantity = 1;
