@@ -602,6 +602,11 @@
         if (currentCategory === "sale") {
             list = list.filter(product => product.sale);
         }
+        if (currentCategory === "favorites") {
+    list = list.filter(product =>
+        localStorage.getItem(`favorite_${product.id}`) === "true"
+    );
+}
         if (search) {
             list = list.filter(product =>
                 product.name.toLowerCase().includes(search)
