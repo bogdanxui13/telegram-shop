@@ -13,16 +13,12 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             margin: 0;
             padding: 18px;
             font-family: Arial, sans-serif;
-            background: #09090b;
-            color: #f5f5f7;
+            background: #0b0b0f;
+            color: #fff;
         }
 
         button,
@@ -31,136 +27,103 @@
         }
 
         button {
-            -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
         }
 
         /* =========================
            HEADER
         ========================= */
 
-        .header {
+        header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 22px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .brand {
-            min-width: 0;
-        }
-
-        .brand-title {
+        .logo-block h1 {
             margin: 0;
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .brand-subtitle {
-            margin-top: 4px;
-            color: #85858d;
-            font-size: 10px;
+            font-size: 25px;
             letter-spacing: 2px;
-            font-weight: 700;
         }
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .logo-block p {
+            margin: 4px 0 0;
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 2px;
         }
 
-        .icon-button {
+        .cart-button {
             position: relative;
-            width: 44px;
-            height: 44px;
-            border: 1px solid #24242b;
-            border-radius: 13px;
-            background: #111115;
+            width: 48px;
+            height: 48px;
+            border: 1px solid #292933;
+            border-radius: 14px;
+            background: #15151c;
             color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.2s;
+            font-size: 21px;
+            transition: .2s;
         }
 
-        .icon-button:hover {
-            border-color: #7c3aed;
-        }
-
-        .icon-button:active {
-            transform: scale(0.94);
+        .cart-button:hover {
+            border-color: #a855f7;
+            transform: translateY(-2px);
         }
 
         .cart-count {
             position: absolute;
-            top: -5px;
-            right: -5px;
-            min-width: 19px;
-            height: 19px;
+            top: -6px;
+            right: -6px;
+
+            min-width: 20px;
+            height: 20px;
+
             padding: 0 5px;
-            border-radius: 20px;
-            background: #a855f7;
-            color: #fff;
-            font-size: 10px;
-            font-weight: 900;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+
+            border-radius: 20px;
+            background: #a855f7;
+            color: white;
+
+            font-size: 11px;
+            font-weight: bold;
         }
 
-        .cart-count.bump {
-            animation: cartBump 0.35s ease;
-        }
-
-        @keyframes cartBump {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.35);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+        .cart-count.hidden {
+            display: none;
         }
 
         /* =========================
            SEARCH
         ========================= */
 
-        .search-wrapper {
-            display: none;
-            margin-bottom: 16px;
+        .search {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 18px;
         }
 
-        .search-wrapper.active {
-            display: block;
-            animation: fadeDown 0.2s ease;
-        }
-
-        .search-input {
+        .search input {
             width: 100%;
-            height: 48px;
-            padding: 0 16px;
-            border: 1px solid #292932;
-            border-radius: 14px;
-            outline: none;
-            background: #111115;
+            padding: 14px 16px;
+
+            border: 1px solid #292933;
+            border-radius: 13px;
+
+            background: #15151c;
             color: #fff;
+
+            outline: none;
             font-size: 15px;
         }
 
-        .search-input::placeholder {
-            color: #6f6f78;
-        }
-
-        .search-input:focus {
-            border-color: #7c3aed;
-            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+        .search input:focus {
+            border-color: #a855f7;
         }
 
         /* =========================
@@ -171,9 +134,8 @@
             display: flex;
             gap: 8px;
             overflow-x: auto;
-            padding-bottom: 4px;
-            margin-bottom: 16px;
-            scrollbar-width: none;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         .categories::-webkit-scrollbar {
@@ -182,55 +144,46 @@
 
         .category {
             flex: 0 0 auto;
-            padding: 10px 15px;
-            border: 1px solid #27272f;
-            border-radius: 12px;
-            background: #111115;
-            color: #a1a1aa;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.2s;
-        }
 
-        .category:hover {
-            border-color: #7c3aed;
-            color: #fff;
+            padding: 9px 15px;
+
+            border: 1px solid #292933;
+            border-radius: 20px;
+
+            background: #15151c;
+            color: #aaa;
+
+            font-size: 13px;
+
+            transition: .2s;
         }
 
         .category.active {
-            border-color: #8b5cf6;
-            background: #7c3aed;
+            background: #a855f7;
+            border-color: #a855f7;
             color: #fff;
-            box-shadow: 0 0 18px rgba(124, 58, 237, 0.22);
         }
 
         /* =========================
            SORT
         ========================= */
 
-        .toolbar {
+        .sort-row {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            gap: 10px;
-        }
-
-        .products-count {
-            color: #777780;
-            font-size: 12px;
+            justify-content: flex-end;
+            margin-bottom: 18px;
         }
 
         .sort-select {
-            height: 36px;
-            padding: 0 10px;
-            border: 1px solid #292932;
+            padding: 9px 12px;
+
+            border: 1px solid #292933;
             border-radius: 10px;
+
+            background: #15151c;
+            color: #aaa;
+
             outline: none;
-            background: #111115;
-            color: #bdbdc5;
-            font-size: 12px;
         }
 
         /* =========================
@@ -245,199 +198,28 @@
 
         .product {
             position: relative;
-            min-width: 0;
-            overflow: hidden;
-            border: 1px solid #202027;
+
+            background: #121218;
+            border: 1px solid #20202a;
             border-radius: 16px;
-            background: #101014;
-            cursor: pointer;
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                opacity 0.25s ease;
-            animation: productAppear 0.4s ease both;
+
+            padding: 8px;
+
+            overflow: hidden;
+
+            animation: productAppear .35s ease;
+            transition: .2s;
         }
 
         .product:hover {
             transform: translateY(-3px);
-            border-color: #393943;
-        }
-
-        .product.sold-out {
-            cursor: default;
-        }
-
-        .product-image-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 0.82;
-            overflow: hidden;
-            background: #17171c;
-        }
-
-        .product img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            transition: transform 0.35s ease, opacity 0.25s ease;
-        }
-
-        .product:hover img {
-            transform: scale(1.035);
-        }
-
-        .product.sold-out img {
-            opacity: 0.38;
-            filter: grayscale(0.3);
-        }
-
-        .stock-badge {
-            position: absolute;
-            top: 9px;
-            left: 9px;
-            padding: 6px 8px;
-            border-radius: 8px;
-            background: rgba(9, 9, 11, 0.82);
-            backdrop-filter: blur(8px);
-            color: #d4d4d8;
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .stock-badge.low {
-            color: #f0abfc;
-        }
-
-        .stock-badge.out {
-            background: rgba(24, 24, 27, 0.92);
-            color: #a1a1aa;
-        }
-
-        .sale-badge {
-            position: absolute;
-            top: 9px;
-            right: 9px;
-            padding: 6px 8px;
-            border-radius: 8px;
-            background: #a855f7;
-            color: #fff;
-            font-size: 9px;
-            font-weight: 900;
-        }
-
-        .sold-out-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: none;
-        }
-
-        .sold-out-overlay span {
-            padding: 9px 12px;
-            border: 1px solid rgba(255,255,255,0.16);
-            border-radius: 10px;
-            background: rgba(9, 9, 11, 0.82);
-            backdrop-filter: blur(8px);
-            color: #f4f4f5;
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .product-info {
-            padding: 11px;
-        }
-
-        .product-name {
-            margin: 0 0 7px;
-            overflow: hidden;
-            color: #f4f4f5;
-            font-size: 14px;
-            font-weight: 800;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-
-        .product-price-row {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 7px;
-        }
-
-        .product-price {
-            color: #fff;
-            font-size: 15px;
-            font-weight: 900;
-        }
-
-        .old-price {
-            color: #66666f;
-            font-size: 11px;
-            text-decoration: line-through;
-        }
-
-        /* =========================
-           SKELETON
-        ========================= */
-
-        .skeleton {
-            overflow: hidden;
-            border-radius: 16px;
-            background: #111115;
-            border: 1px solid #202027;
-        }
-
-        .skeleton-image {
-            aspect-ratio: 0.82;
-            background: linear-gradient(
-                90deg,
-                #141419 25%,
-                #1b1b21 50%,
-                #141419 75%
-            );
-            background-size: 200% 100%;
-            animation: skeletonLoading 1.2s infinite;
-        }
-
-        .skeleton-line {
-            height: 11px;
-            margin: 12px;
-            border-radius: 6px;
-            background: linear-gradient(
-                90deg,
-                #141419 25%,
-                #1b1b21 50%,
-                #141419 75%
-            );
-            background-size: 200% 100%;
-            animation: skeletonLoading 1.2s infinite;
-        }
-
-        .skeleton-line.short {
-            width: 45%;
-            margin-top: 0;
-        }
-
-        @keyframes skeletonLoading {
-            from {
-                background-position: 200% 0;
-            }
-
-            to {
-                background-position: -200% 0;
-            }
+            border-color: #363642;
         }
 
         @keyframes productAppear {
             from {
                 opacity: 0;
-                transform: translateY(8px);
+                transform: translateY(10px);
             }
 
             to {
@@ -446,366 +228,258 @@
             }
         }
 
-        /* =========================
-           EMPTY SEARCH
-        ========================= */
-
-        .empty-search {
-            display: none;
-            padding: 55px 20px;
-            text-align: center;
+        .product-image {
+            position: relative;
         }
 
-        .empty-search.show {
+        .product img {
+            width: 100%;
+            height: 230px;
+
             display: block;
-            animation: fadeDown 0.25s ease;
+
+            object-fit: cover;
+            border-radius: 12px;
+
+            transition: .3s;
         }
 
-        .empty-search-icon {
-            margin-bottom: 12px;
-            font-size: 42px;
+        .product:hover img {
+            transform: scale(1.02);
         }
 
-        .empty-search-title {
-            margin-bottom: 7px;
-            font-size: 18px;
-            font-weight: 900;
+        .sale-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+
+            padding: 5px 8px;
+
+            border-radius: 8px;
+
+            background: #a855f7;
+            color: white;
+
+            font-size: 10px;
+            font-weight: bold;
         }
 
-        .empty-search-text {
-            color: #71717a;
+        .stock-badge {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+
+            padding: 5px 8px;
+
+            border-radius: 8px;
+
+            background: rgba(0,0,0,.75);
+            color: #ddd;
+
+            font-size: 10px;
+        }
+
+        .sold-out {
+            opacity: .65;
+        }
+
+        .sold-out img {
+            filter: grayscale(1);
+            opacity: .55;
+        }
+
+        .sold-overlay {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: rgba(0,0,0,.35);
+
             font-size: 13px;
-            line-height: 1.5;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .product h2 {
+            margin: 10px 3px 4px;
+
+            font-size: 15px;
+            line-height: 1.2;
+        }
+
+        .price {
+            margin: 0 3px 2px;
+
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            margin-left: 5px;
+
+            color: #666;
+            text-decoration: line-through;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .product-stock {
+            margin: 0 3px 9px;
+
+            color: #777;
+            font-size: 11px;
+        }
+
+        .product button {
+            width: 100%;
+
+            padding: 10px;
+
+            border: 0;
+            border-radius: 10px;
+
+            background: #a855f7;
+            color: white;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+        .product button:hover {
+            background: #9333ea;
+        }
+
+        .product button:disabled {
+            background: #292933;
+            color: #666;
+            cursor: not-allowed;
         }
 
         /* =========================
-           MODALS
+           NO RESULTS
         ========================= */
 
-        .modal-backdrop {
+        .no-results {
+            display: none;
+
+            padding: 50px 20px;
+
+            text-align: center;
+            color: #666;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
             position: fixed;
             inset: 0;
+
             z-index: 100;
+
             display: none;
             align-items: flex-end;
             justify-content: center;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.72);
-            backdrop-filter: blur(7px);
+
+            background: rgba(0,0,0,.72);
         }
 
-        .modal-backdrop.active {
+        .modal.active {
             display: flex;
-            animation: fadeIn 0.2s ease;
         }
 
-        .modal {
+        .modal-content {
             width: 100%;
-            max-width: 560px;
+            max-width: 600px;
             max-height: 92vh;
+
             overflow-y: auto;
-            border: 1px solid #292932;
-            border-radius: 22px;
-            background: #101014;
-            box-shadow: 0 20px 70px rgba(0,0,0,0.5);
-            animation: modalUp 0.25s ease;
+
+            padding: 20px;
+
+            border-radius: 22px 22px 0 0;
+
+            background: #111117;
+
+            animation: modalUp .25s ease;
         }
 
-        .modal-header {
-            position: sticky;
-            top: 0;
-            z-index: 2;
+        @keyframes modalUp {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .modal-top {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 15px 16px;
-            border-bottom: 1px solid #202027;
-            background: rgba(16, 16, 20, 0.94);
-            backdrop-filter: blur(12px);
+            align-items: center;
+
+            margin-bottom: 15px;
         }
 
-        .modal-title {
+        .modal-top h2 {
             margin: 0;
-            font-size: 17px;
-            font-weight: 900;
-        }
-
-        .close-button {
-            width: 34px;
-            height: 34px;
-            border: 1px solid #292932;
-            border-radius: 10px;
-            background: #17171c;
-            color: #aaaab2;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        /* =========================
-           PRODUCT DETAIL
-        ========================= */
-
-        .gallery {
-            position: relative;
-            overflow: hidden;
-            background: #08080a;
-        }
-
-        .gallery-track {
-            display: flex;
-            transition: transform 0.3s ease;
-            touch-action: pan-y;
-        }
-
-        .gallery-slide {
-            min-width: 100%;
-            aspect-ratio: 0.82;
-        }
-
-        .gallery-slide img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        .gallery-arrow {
-            position: absolute;
-            top: 50%;
-            z-index: 2;
-            width: 38px;
-            height: 38px;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 50%;
-            background: rgba(0,0,0,0.45);
-            color: #fff;
-            cursor: pointer;
-            transform: translateY(-50%);
-        }
-
-        .gallery-arrow.prev {
-            left: 12px;
-        }
-
-        .gallery-arrow.next {
-            right: 12px;
-        }
-
-        .gallery-dots {
-            position: absolute;
-            bottom: 12px;
-            left: 50%;
-            display: flex;
-            gap: 5px;
-            transform: translateX(-50%);
-        }
-
-        .gallery-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.35);
-        }
-
-        .gallery-dot.active {
-            width: 17px;
-            border-radius: 10px;
-            background: #fff;
-        }
-
-        .product-detail-content {
-            padding: 17px;
-        }
-
-        .detail-name {
-            margin: 0 0 9px;
-            font-size: 23px;
-            font-weight: 900;
-        }
-
-        .detail-price {
-            margin-bottom: 16px;
             font-size: 20px;
-            font-weight: 900;
         }
 
-        .detail-old-price {
-            margin-left: 8px;
-            color: #66666f;
-            font-size: 13px;
-            text-decoration: line-through;
-        }
+        .close {
+            width: 36px;
+            height: 36px;
 
-        .detail-description {
-            margin-bottom: 18px;
-            color: #9898a1;
-            font-size: 14px;
-            line-height: 1.6;
-        }
+            border: 0;
+            border-radius: 10px;
 
-        .detail-stock {
-            margin-bottom: 13px;
-            color: #aaaab2;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .quantity-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            height: 48px;
-            border: 1px solid #292932;
-            border-radius: 13px;
-            background: #15151a;
-        }
-
-        .quantity-control button {
-            width: 42px;
-            height: 100%;
-            border: none;
-            background: transparent;
+            background: #20202a;
             color: #fff;
+
             font-size: 20px;
-            cursor: pointer;
-        }
-
-        .quantity-control span {
-            width: 30px;
-            text-align: center;
-            font-weight: 900;
-        }
-
-        .add-button {
-            flex: 1;
-            height: 48px;
-            border: none;
-            border-radius: 13px;
-            background: #7c3aed;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .add-button:hover {
-            background: #8b5cf6;
-        }
-
-        .add-button:active {
-            transform: scale(0.98);
-        }
-
-        .add-button:disabled {
-            background: #292932;
-            color: #66666f;
-            cursor: not-allowed;
         }
 
         /* =========================
            CART
         ========================= */
 
-        .cart-items {
-            padding: 14px 16px 4px;
-        }
-
-        .cart-item {
+        .cart-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 11px;
-            padding: 11px 0;
-            border-bottom: 1px solid #202027;
+
+            margin-bottom: 18px;
         }
 
-        .cart-item:last-child {
-            border-bottom: none;
+        .cart-header h2 {
+            margin: 0;
         }
 
-        .cart-item-image {
-            width: 58px;
-            height: 70px;
-            flex: 0 0 58px;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #18181d;
+        .clear-cart {
+            border: 0;
+            background: none;
+            color: #777;
+            font-size: 12px;
         }
 
-        .cart-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cart-item-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .cart-item-name {
-            margin-bottom: 4px;
-            overflow: hidden;
-            font-size: 13px;
-            font-weight: 800;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-
-        .cart-item-price {
-            color: #9a9aa3;
-            font-size: 11px;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cart-quantity {
-            display: flex;
-            align-items: center;
-            border: 1px solid #292932;
-            border-radius: 9px;
-            overflow: hidden;
-        }
-
-        .cart-quantity button {
-            width: 26px;
-            height: 29px;
-            border: none;
-            background: #17171c;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .cart-quantity span {
-            min-width: 24px;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 900;
-        }
-
-        .remove-item {
-            width: 29px;
-            height: 29px;
-            border: 1px solid #292932;
-            border-radius: 9px;
-            background: transparent;
-            color: #777780;
-            cursor: pointer;
+        .clear-cart:hover {
+            color: #ff5c5c;
         }
 
         .cart-empty {
-            padding: 55px 20px;
+            padding: 45px 15px;
+
             text-align: center;
+            color: #666;
         }
 
         .cart-empty-icon {
@@ -813,92 +487,204 @@
             font-size: 42px;
         }
 
-        .cart-empty-title {
-            margin-bottom: 6px;
-            font-size: 18px;
-            font-weight: 900;
+        .cart-item {
+            display: grid;
+            grid-template-columns: 70px 1fr auto;
+
+            gap: 12px;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #24242d;
         }
 
-        .cart-empty-text {
-            color: #71717a;
+        .cart-item img {
+            width: 70px;
+            height: 85px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+        .cart-item-info {
+            min-width: 0;
+        }
+
+        .cart-item-name {
+            margin-bottom: 5px;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .cart-item-price {
+            margin-bottom: 8px;
+
+            color: #aaa;
             font-size: 13px;
         }
 
-        .cart-footer {
-            padding: 15px 16px 17px;
-            border-top: 1px solid #202027;
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .promo-row {
+        .quantity button {
+            width: 28px;
+            height: 28px;
+
+            border: 1px solid #30303a;
+            border-radius: 8px;
+
+            background: #191921;
+            color: white;
+
+            font-size: 16px;
+        }
+
+        .quantity button:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+        }
+
+        .quantity span {
+            min-width: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .cart-item-right {
+            text-align: right;
+        }
+
+        .cart-item-total {
+            margin-bottom: 8px;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .remove-item {
+            border: 0;
+            background: none;
+            color: #777;
+            font-size: 11px;
+        }
+
+        .remove-item:hover {
+            color: #ff5c5c;
+        }
+
+        /* =========================
+           PROMO
+        ========================= */
+
+        .promo {
             display: flex;
             gap: 8px;
-            margin-bottom: 12px;
+
+            margin-top: 18px;
         }
 
-        .promo-input {
-            min-width: 0;
+        .promo input {
             flex: 1;
-            height: 43px;
-            padding: 0 12px;
-            border: 1px solid #292932;
-            border-radius: 11px;
+
+            min-width: 0;
+
+            padding: 12px;
+
+            border: 1px solid #292933;
+            border-radius: 10px;
+
+            background: #15151c;
+            color: white;
+
             outline: none;
-            background: #15151a;
-            color: #fff;
-            font-size: 12px;
-            text-transform: uppercase;
         }
 
-        .promo-button {
-            height: 43px;
-            padding: 0 14px;
-            border: 1px solid #292932;
-            border-radius: 11px;
-            background: #17171c;
-            color: #fff;
-            font-size: 12px;
-            font-weight: 800;
-            cursor: pointer;
+        .promo button {
+            padding: 0 15px;
+
+            border: 0;
+            border-radius: 10px;
+
+            background: #292933;
+            color: white;
         }
 
         .promo-message {
             min-height: 17px;
-            margin: -4px 0 10px;
-            color: #a855f7;
+
+            margin-top: 7px;
+
             font-size: 11px;
         }
 
-        .total-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 13px;
+        .promo-success {
+            color: #6ee7b7;
         }
 
-        .total-label {
-            color: #8d8d96;
+        .promo-error {
+            color: #ff6b6b;
+        }
+
+        /* =========================
+           TOTAL
+        ========================= */
+
+        .cart-summary {
+            margin-top: 20px;
+            padding-top: 16px;
+
+            border-top: 1px solid #292933;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            color: #999;
             font-size: 13px;
         }
 
-        .total-price {
-            font-size: 21px;
-            font-weight: 900;
+        .summary-row.discount {
+            color: #6ee7b7;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 15px;
+
+            font-size: 20px;
+            font-weight: bold;
         }
 
         .checkout-button {
             width: 100%;
-            height: 49px;
-            border: none;
-            border-radius: 13px;
-            background: #7c3aed;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 900;
-            cursor: pointer;
+
+            margin-top: 18px;
+            padding: 14px;
+
+            border: 0;
+            border-radius: 12px;
+
+            background: #a855f7;
+            color: white;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            transition: .2s;
         }
 
-        .checkout-button:active {
-            transform: scale(0.985);
+        .checkout-button:hover {
+            background: #9333ea;
         }
 
         /* =========================
@@ -907,103 +693,60 @@
 
         .toast {
             position: fixed;
+
             left: 50%;
-            bottom: 20px;
+            bottom: 25px;
+
             z-index: 300;
-            max-width: calc(100% - 30px);
-            padding: 12px 16px;
-            border: 1px solid #34343d;
+
+            transform: translate(-50%, 100px);
+
+            padding: 12px 17px;
+
             border-radius: 12px;
-            background: #17171c;
-            color: #fff;
-            font-size: 12px;
-            font-weight: 700;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+
+            background: #22222b;
+            color: white;
+
+            font-size: 13px;
+
             opacity: 0;
-            pointer-events: none;
-            transform: translate(-50%, 15px);
-            transition: 0.25s;
+
+            transition: .3s;
         }
 
         .toast.show {
-            opacity: 1;
             transform: translate(-50%, 0);
-        }
-
-        /* =========================
-           ANIMATIONS
-        ========================= */
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-7px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes modalUp {
-            from {
-                opacity: 0;
-                transform: translateY(35px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            opacity: 1;
         }
 
         /* =========================
            DESKTOP
         ========================= */
 
-        @media (min-width: 700px) {
+        @media (min-width: 900px) {
+
             body {
-                max-width: 1300px;
-                margin: 0 auto;
-                padding: 28px;
+                max-width: 1400px;
+                margin: auto;
+                padding: 30px;
             }
 
             .products {
                 grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 16px;
             }
 
-            .modal-backdrop {
-                align-items: center;
+            .product img {
+                height: 300px;
             }
 
             .modal {
-                max-height: 90vh;
+                align-items: center;
             }
-        }
 
-        /* =========================
-           REDUCED MOTION
-        ========================= */
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+            .modal-content {
+                border-radius: 22px;
+                max-height: 90vh;
             }
         }
     </style>
@@ -1011,577 +754,282 @@
 
 <body>
 
-    <!-- HEADER -->
+<header>
 
-    <header class="header">
+    <div class="logo-block">
+        <h1>MY STORE</h1>
+        <p>CLOTHING & ACCESSORIES</p>
+    </div>
 
-        <div class="brand">
-            <h1 class="brand-title">MY STORE</h1>
-            <div class="brand-subtitle">CLOTHING & ACCESSORIES</div>
-        </div>
+    <button class="cart-button" onclick="openCart()">
+        🛒
+        <span id="cartCount" class="cart-count hidden">0</span>
+    </button>
 
-        <div class="header-actions">
+</header>
+
+
+<div class="search">
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Поиск товара..."
+        oninput="renderProducts()"
+    >
+
+</div>
+
+
+<div class="categories">
+
+    <button class="category active" onclick="setCategory('all', this)">
+        ВСЕ
+    </button>
+
+    <button class="category" onclick="setCategory('cat1', this)">
+        1
+    </button>
+
+    <button class="category" onclick="setCategory('cat2', this)">
+        2
+    </button>
+
+    <button class="category" onclick="setCategory('cat3', this)">
+        3
+    </button>
+
+    <button class="category" onclick="setCategory('cat4', this)">
+        4
+    </button>
+
+    <button class="category" onclick="setCategory('cat5', this)">
+        5
+    </button>
+
+    <button class="category" onclick="setCategory('cat6', this)">
+        6
+    </button>
+
+</div>
+
+
+<div class="sort-row">
+
+    <select
+        id="sortSelect"
+        class="sort-select"
+        onchange="renderProducts()"
+    >
+        <option value="popular">Популярные</option>
+        <option value="cheap">Сначала дешевле</option>
+        <option value="expensive">Сначала дороже</option>
+    </select>
+
+</div>
+
+
+<div id="products" class="products"></div>
+
+<div id="noResults" class="no-results">
+    <div style="font-size:35px;">🔎</div>
+    <p>Ничего не найдено</p>
+</div>
+
+
+<!-- =========================
+     PRODUCT MODAL
+========================= -->
+
+<div
+    id="productModal"
+    class="modal"
+    onclick="closeModalOutside(event)"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-top">
+
+            <h2 id="modalName"></h2>
 
             <button
-                class="icon-button"
-                id="searchButton"
-                aria-label="Поиск"
+                class="close"
+                onclick="closeProductModal()"
             >
-                🔎
+                ×
             </button>
 
-            <button
-                class="icon-button"
-                id="cartButton"
-                aria-label="Корзина"
-            >
-                🛒
-                <span
-                    class="cart-count"
-                    id="cartCount"
-                >
-                    0
+        </div>
+
+        <img
+            id="modalImage"
+            style="
+                width:100%;
+                height:350px;
+                object-fit:cover;
+                border-radius:14px;
+            "
+        >
+
+        <div
+            id="modalDescription"
+            style="
+                margin-top:15px;
+                color:#aaa;
+                line-height:1.5;
+                font-size:14px;
+            "
+        ></div>
+
+        <div
+            id="modalPrice"
+            style="
+                margin-top:15px;
+                font-size:21px;
+                font-weight:bold;
+            "
+        ></div>
+
+        <div
+            id="modalStock"
+            style="
+                margin-top:7px;
+                color:#777;
+                font-size:12px;
+            "
+        ></div>
+
+        <div
+            style="
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                gap:15px;
+                margin-top:18px;
+            "
+        >
+
+            <div class="quantity">
+
+                <button onclick="changeModalQuantity(-1)">
+                    −
+                </button>
+
+                <span id="modalQuantity">
+                    1
                 </span>
+
+                <button onclick="changeModalQuantity(1)">
+                    +
+                </button>
+
+            </div>
+
+            <button
+                id="modalAddButton"
+                onclick="addCurrentProductToCart()"
+                style="
+                    flex:1;
+                    padding:13px;
+                    border:0;
+                    border-radius:11px;
+                    background:#a855f7;
+                    color:white;
+                    font-weight:bold;
+                "
+            >
+                В корзину
             </button>
 
         </div>
 
-    </header>
-
-
-    <!-- SEARCH -->
-
-    <div
-        class="search-wrapper"
-        id="searchWrapper"
-    >
-        <input
-            class="search-input"
-            id="searchInput"
-            type="text"
-            placeholder="Поиск товара..."
-            autocomplete="off"
-        >
     </div>
 
+</div>
 
-    <!-- CATEGORIES -->
 
-    <div class="categories">
+<!-- =========================
+     CART MODAL
+========================= -->
 
-        <button
-            class="category active"
-            data-category="all"
-        >
-            ВСЕ
-        </button>
+<div
+    id="cartModal"
+    class="modal"
+    onclick="closeCartOutside(event)"
+>
 
-        <button
-            class="category"
-            data-category="cat1"
-        >
-            1
-        </button>
+    <div class="modal-content">
 
-        <button
-            class="category"
-            data-category="cat2"
-        >
-            2
-        </button>
+        <div class="cart-header">
 
-        <button
-            class="category"
-            data-category="cat3"
-        >
-            3
-        </button>
+            <h2>Корзина</h2>
 
-        <button
-            class="category"
-            data-category="cat4"
-        >
-            4
-        </button>
-
-        <button
-            class="category"
-            data-category="cat5"
-        >
-            5
-        </button>
-
-        <button
-            class="category"
-            data-category="cat6"
-        >
-            6
-        </button>
-
-    </div>
-
-
-    <!-- TOOLBAR -->
-
-    <div class="toolbar">
-
-        <div
-            class="products-count"
-            id="productsCount"
-        >
-            Товаров: 0
-        </div>
-
-        <select
-            class="sort-select"
-            id="sortSelect"
-        >
-            <option value="popular">Популярные</option>
-            <option value="cheap">Сначала дешевле</option>
-            <option value="expensive">Сначала дороже</option>
-        </select>
-
-    </div>
-
-
-    <!-- PRODUCTS -->
-
-    <main>
-
-        <div
-            class="products"
-            id="products"
-        >
-
-            <div class="skeleton">
-                <div class="skeleton-image"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line short"></div>
-            </div>
-
-            <div class="skeleton">
-                <div class="skeleton-image"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line short"></div>
-            </div>
-
-            <div class="skeleton">
-                <div class="skeleton-image"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line short"></div>
-            </div>
-
-            <div class="skeleton">
-                <div class="skeleton-image"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line short"></div>
-            </div>
-
-        </div>
-
-
-        <div
-            class="empty-search"
-            id="emptySearch"
-        >
-            <div class="empty-search-icon">
-                👀
-            </div>
-
-            <div class="empty-search-title">
-                Товар сбежал
-            </div>
-
-            <div class="empty-search-text">
-                Похоже, этот товар решил спрятаться.<br>
-                Попробуй другой запрос.
-            </div>
-        </div>
-
-    </main>
-
-
-    <!-- PRODUCT MODAL -->
-
-    <div
-        class="modal-backdrop"
-        id="productModal"
-    >
-
-        <div class="modal">
-
-            <div class="modal-header">
-
-                <h2
-                    class="modal-title"
-                    id="productModalTitle"
-                >
-                    Товар
-                </h2>
-
-                <button
-                    class="close-button"
-                    id="closeProductModal"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <div class="gallery">
-
-                <div
-                    class="gallery-track"
-                    id="galleryTrack"
-                >
-                </div>
-
-                <button
-                    class="gallery-arrow prev"
-                    id="galleryPrev"
-                >
-                    ‹
-                </button>
-
-                <button
-                    class="gallery-arrow next"
-                    id="galleryNext"
-                >
-                    ›
-                </button>
-
-                <div
-                    class="gallery-dots"
-                    id="galleryDots"
-                >
-                </div>
-
-            </div>
-
-
-            <div class="product-detail-content">
-
-                <h2
-                    class="detail-name"
-                    id="detailName"
-                >
-                </h2>
-
-                <div
-                    class="detail-price"
-                    id="detailPrice"
-                >
-                </div>
-
-                <div
-                    class="detail-description"
-                    id="detailDescription"
-                >
-                </div>
-
-                <div
-                    class="detail-stock"
-                    id="detailStock"
-                >
-                </div>
-
-                <div class="quantity-row">
-
-                    <div class="quantity-control">
-
-                        <button
-                            id="detailMinus"
-                        >
-                            −
-                        </button>
-
-                        <span
-                            id="detailQuantity"
-                        >
-                            1
-                        </span>
-
-                        <button
-                            id="detailPlus"
-                        >
-                            +
-                        </button>
-
-                    </div>
-
-                    <button
-                        class="add-button"
-                        id="addToCartButton"
-                    >
-                        Добавить в корзину
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- CART MODAL -->
-
-    <div
-        class="modal-backdrop"
-        id="cartModal"
-    >
-
-        <div class="modal">
-
-            <div class="modal-header">
-
-                <h2 class="modal-title">
-                    Корзина
-                </h2>
-
-                <button
-                    class="close-button"
-                    id="closeCartModal"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <div
-                class="cart-items"
-                id="cartItems"
+            <button
+                class="close"
+                onclick="closeCart()"
             >
-            </div>
-
-
-            <div
-                class="cart-footer"
-                id="cartFooter"
-            >
-
-                <div class="promo-row">
-
-                    <input
-                        class="promo-input"
-                        id="promoInput"
-                        type="text"
-                        placeholder="ПРОМОКОД"
-                    >
-
-                    <button
-                        class="promo-button"
-                        id="promoButton"
-                    >
-                        Применить
-                    </button>
-
-                </div>
-
-                <div
-                    class="promo-message"
-                    id="promoMessage"
-                >
-                </div>
-
-                <div class="total-row">
-
-                    <span class="total-label">
-                        Итого
-                    </span>
-
-                    <span
-                        class="total-price"
-                        id="totalPrice"
-                    >
-                        0 ₽
-                    </span>
-
-                </div>
-
-                <button
-                    class="checkout-button"
-                    id="checkoutButton"
-                >
-                    Оформить заказ
-                </button>
-
-            </div>
+                ×
+            </button>
 
         </div>
 
+
+        <div id="cartContent"></div>
+
     </div>
 
-
-    <!-- TOAST -->
-
-    <div
-        class="toast"
-        id="toast"
-    >
-    </div>
+</div>
 
 
-    <!-- PRODUCTS -->
-
-    <script src="products.js"></script>
-
-
-    <!-- APP -->
-
-    <script>
-
-        const tg = window.Telegram.WebApp;
-
-        tg.ready();
-        tg.expand();
+<div id="toast" class="toast">
+    Товар добавлен в корзину
+</div>
 
 
-        /* =========================
-           ELEMENTS
-        ========================= */
+<script src="products.js"></script>
 
-        const productsContainer =
-            document.getElementById("products");
+<script>
 
-        const productsCount =
-            document.getElementById("productsCount");
+    /* =========================
+       TELEGRAM
+    ========================= */
 
-        const emptySearch =
-            document.getElementById("emptySearch");
+    const tg = window.Telegram.WebApp;
 
-        const searchButton =
-            document.getElementById("searchButton");
-
-        const searchWrapper =
-            document.getElementById("searchWrapper");
-
-        const searchInput =
-            document.getElementById("searchInput");
-
-        const sortSelect =
-            document.getElementById("sortSelect");
-
-        const cartButton =
-            document.getElementById("cartButton");
-
-        const cartCount =
-            document.getElementById("cartCount");
-
-        const productModal =
-            document.getElementById("productModal");
-
-        const cartModal =
-            document.getElementById("cartModal");
-
-        const closeProductModal =
-            document.getElementById("closeProductModal");
-
-        const closeCartModal =
-            document.getElementById("closeCartModal");
-
-        const productModalTitle =
-            document.getElementById("productModalTitle");
-
-        const detailName =
-            document.getElementById("detailName");
-
-        const detailPrice =
-            document.getElementById("detailPrice");
-
-        const detailDescription =
-            document.getElementById("detailDescription");
-
-        const detailStock =
-            document.getElementById("detailStock");
-
-        const detailQuantity =
-            document.getElementById("detailQuantity");
-
-        const detailMinus =
-            document.getElementById("detailMinus");
-
-        const detailPlus =
-            document.getElementById("detailPlus");
-
-        const addToCartButton =
-            document.getElementById("addToCartButton");
-
-        const galleryTrack =
-            document.getElementById("galleryTrack");
-
-        const galleryDots =
-            document.getElementById("galleryDots");
-
-        const galleryPrev =
-            document.getElementById("galleryPrev");
-
-        const galleryNext =
-            document.getElementById("galleryNext");
-
-        const cartItems =
-            document.getElementById("cartItems");
-
-        const cartFooter =
-            document.getElementById("cartFooter");
-
-        const promoInput =
-            document.getElementById("promoInput");
-
-        const promoButton =
-            document.getElementById("promoButton");
-
-        const promoMessage =
-            document.getElementById("promoMessage");
-
-        const totalPrice =
-            document.getElementById("totalPrice");
-
-        const checkoutButton =
-            document.getElementById("checkoutButton");
-
-        const toast =
-            document.getElementById("toast");
+    tg.ready();
+    tg.expand();
 
 
-        /* =========================
-           STATE
-        ========================= */
+    /* =========================
+       STATE
+    ========================= */
 
-        let currentCategory = "all";
+    let currentCategory = "all";
 
-        let currentProduct = null;
+    let currentProduct = null;
 
-        let currentGalleryIndex = 0;
+    let modalQuantity = 1;
 
-        let detailQty = 1;
+    let cart = [];
 
-        let promoApplied = false;
+    let promoCode = "";
 
-        let cart = [];
+    let promoDiscount = 0;
 
 
-        /* =========================
-           LOAD CART
-        ========================= */
+    /* =========================
+       LOAD CART
+    ========================= */
+
+    function loadCart() {
 
         try {
 
-            const savedCart =
-                localStorage.getItem("myStoreCart");
+            const savedCart = localStorage.getItem("myStoreCart");
 
             if (savedCart) {
-
-                const parsed =
-                    JSON.parse(savedCart);
-
-                if (Array.isArray(parsed)) {
-                    cart = parsed;
-                }
-
+                cart = JSON.parse(savedCart);
             }
 
         } catch (error) {
@@ -1590,239 +1038,182 @@
 
         }
 
+        validateCartStock();
 
-        /* =========================
-           HELPERS
-        ========================= */
+        saveCart();
 
-        function formatPrice(price) {
-
-            return price
-                .toLocaleString("ru-RU")
-                .replace(/\u00A0/g, " ") + " ₽";
-
-        }
+        updateCartCount();
+    }
 
 
-        function getProductById(id) {
+    /* =========================
+       SAVE CART
+    ========================= */
 
-            return products.find(
-                product => product.id === id
+    function saveCart() {
+
+        localStorage.setItem(
+            "myStoreCart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+    /* =========================
+       STOCK VALIDATION
+    ========================= */
+
+    function validateCartStock() {
+
+        cart = cart.filter(item => {
+
+            const product = products.find(
+                p => p.id === item.id
             );
 
-        }
-
-
-        function saveCart() {
-
-            localStorage.setItem(
-                "myStoreCart",
-                JSON.stringify(cart)
-            );
-
-        }
-
-
-        function showToast(message) {
-
-            toast.textContent = message;
-
-            toast.classList.add("show");
-
-            clearTimeout(
-                showToast.timeout
-            );
-
-            showToast.timeout =
-                setTimeout(() => {
-
-                    toast.classList.remove("show");
-
-                }, 2200);
-
-        }
-
-
-        function getStockText(product) {
+            if (!product) {
+                return false;
+            }
 
             if (product.stock <= 0) {
-
-                return "Нет в наличии";
-
+                return false;
             }
 
-            if (product.stock <= 3) {
-
-                return "Осталось " +
-                    product.stock;
-
+            if (item.quantity > product.stock) {
+                item.quantity = product.stock;
             }
 
-            return "В наличии";
+            return true;
 
+        });
+
+    }
+
+
+    /* =========================
+       CART COUNT
+    ========================= */
+
+    function updateCartCount() {
+
+        const count = cart.reduce(
+            (sum, item) => sum + item.quantity,
+            0
+        );
+
+        const badge = document.getElementById("cartCount");
+
+        badge.textContent = count;
+
+        if (count > 0) {
+            badge.classList.remove("hidden");
+        } else {
+            badge.classList.add("hidden");
         }
 
-
-        /* =========================
-           RENDER PRODUCTS
-        ========================= */
-
-        function renderProducts() {
-
-            let filtered =
-                [...products];
+    }
 
 
-            /* CATEGORY */
+    /* =========================
+       CATEGORY
+    ========================= */
 
-            if (currentCategory !== "all") {
+    function setCategory(category, button) {
 
-                filtered =
-                    filtered.filter(
-                        product =>
-                            product.category ===
-                            currentCategory
-                    );
+        currentCategory = category;
 
-            }
+        document
+            .querySelectorAll(".category")
+            .forEach(btn => btn.classList.remove("active"));
 
+        button.classList.add("active");
 
-            /* SEARCH */
+        renderProducts();
 
-            const query =
-                searchInput.value
-                    .trim()
-                    .toLowerCase();
+    }
 
 
-            if (query) {
+    /* =========================
+       RENDER PRODUCTS
+    ========================= */
 
-                filtered =
-                    filtered.filter(product => {
+    function renderProducts() {
 
-                        return (
-                            product.name
-                                .toLowerCase()
-                                .includes(query)
+        const container =
+            document.getElementById("products");
 
-                            ||
+        const noResults =
+            document.getElementById("noResults");
 
-                            product.description
-                                .toLowerCase()
-                                .includes(query)
-
-                            ||
-
-                            product.category
-                                .toLowerCase()
-                                .includes(query)
-                        );
-
-                    });
-
-            }
-
-
-            /* SORT */
-
-            if (sortSelect.value === "cheap") {
-
-                filtered.sort(
-                    (a, b) =>
-                        a.price - b.price
-                );
-
-            }
-
-            if (sortSelect.value === "expensive") {
-
-                filtered.sort(
-                    (a, b) =>
-                        b.price - a.price
-                );
-
-            }
-
-            if (sortSelect.value === "popular") {
-
-                filtered.sort(
-                    (a, b) =>
-                        b.popularity -
-                        a.popularity
-                );
-
-            }
-
-
-            /* COUNT */
-
-            productsCount.textContent =
-                "Товаров: " +
-                filtered.length;
-
-
-            /* EMPTY */
-
-            if (filtered.length === 0) {
-
-                productsContainer.innerHTML = "";
-
-                emptySearch.classList.add("show");
-
-                return;
-
-            }
-
-            emptySearch.classList.remove("show");
-
-
-            /* CARDS */
-
-            productsContainer.innerHTML =
-                filtered.map(
-                    (product, index) =>
-                        createProductCard(
-                            product,
-                            index
-                        )
-                ).join("");
-
-
-            /* EVENTS */
-
+        const search =
             document
-                .querySelectorAll(".product")
-                .forEach(card => {
+                .getElementById("searchInput")
+                .value
+                .toLowerCase()
+                .trim();
 
-                    card.addEventListener(
-                        "click",
-                        () => {
+        const sort =
+            document.getElementById("sortSelect").value;
 
-                            const id =
-                                Number(
-                                    card.dataset.id
-                                );
 
-                            openProduct(
-                                getProductById(id)
-                            );
+        let filtered = products.filter(product => {
 
-                        }
-                    );
+            const categoryMatch =
+                currentCategory === "all" ||
+                product.category === currentCategory;
 
-                });
+            const searchMatch =
+                !search ||
+                product.name.toLowerCase().includes(search) ||
+                product.description.toLowerCase().includes(search);
+
+            return categoryMatch && searchMatch;
+
+        });
+
+
+        if (sort === "popular") {
+
+            filtered.sort(
+                (a, b) => b.popularity - a.popularity
+            );
+
+        }
+
+        if (sort === "cheap") {
+
+            filtered.sort(
+                (a, b) => a.price - b.price
+            );
+
+        }
+
+        if (sort === "expensive") {
+
+            filtered.sort(
+                (a, b) => b.price - a.price
+            );
 
         }
 
 
-        /* =========================
-           PRODUCT CARD
-        ========================= */
+        container.innerHTML = "";
 
-        function createProductCard(
-            product,
-            index
-        ) {
+
+        if (filtered.length === 0) {
+
+            noResults.style.display = "block";
+
+            return;
+
+        }
+
+
+        noResults.style.display = "none";
+
+
+        filtered.forEach(product => {
 
             const soldOut =
                 product.stock <= 0;
@@ -1832,1117 +1223,1002 @@
                 product.stock <= 3;
 
 
-            let stockClass = "";
+            let stockText = "В НАЛИЧИИ";
 
             if (soldOut) {
-                stockClass = "out";
+                stockText = "НЕТ В НАЛИЧИИ";
             }
 
             if (lowStock) {
-                stockClass = "low";
+                stockText = `ОСТАЛОСЬ ${product.stock}`;
             }
 
 
-            const stockBadge =
-                soldOut
-                    ? "НЕТ В НАЛИЧИИ"
-                    : lowStock
-                        ? "ОСТАЛОСЬ " +
-                          product.stock
-                        : "В НАЛИЧИИ";
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "product" +
+                (soldOut ? " sold-out" : "");
 
 
-            return `
+            card.innerHTML = `
 
-                <article
-                    class="product ${soldOut ? "sold-out" : ""}"
-                    data-id="${product.id}"
-                    style="animation-delay:${index * 45}ms"
+                <div
+                    class="product-image"
+                    onclick="openProduct(${product.id})"
                 >
 
-                    <div class="product-image-wrapper">
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
 
-                        <img
-                            src="${product.image}"
-                            alt="${product.name}"
-                            loading="lazy"
-                        >
+                    ${
+                        product.sale
+                        ? `<div class="sale-badge">SALE</div>`
+                        : ""
+                    }
 
-                        <div
-                            class="stock-badge ${stockClass}"
-                        >
-                            ${stockBadge}
-                        </div>
-
-                        ${
-                            product.sale
-                                ? `
-                                    <div class="sale-badge">
-                                        SALE
-                                    </div>
-                                `
-                                : ""
-                        }
-
-                        ${
-                            soldOut
-                                ? `
-                                    <div class="sold-out-overlay">
-                                        <span>
-                                            НЕТ В НАЛИЧИИ
-                                        </span>
-                                    </div>
-                                `
-                                : ""
-                        }
-
+                    <div class="stock-badge">
+                        ${stockText}
                     </div>
 
+                    ${
+                        soldOut
+                        ? `<div class="sold-overlay">
+                                НЕТ В НАЛИЧИИ
+                           </div>`
+                        : ""
+                    }
 
-                    <div class="product-info">
-
-                        <h2 class="product-name">
-                            ${product.name}
-                        </h2>
-
-                        <div class="product-price-row">
-
-                            <span class="product-price">
-                                ${formatPrice(product.price)}
-                            </span>
-
-                            ${
-                                product.oldPrice
-                                    ? `
-                                        <span class="old-price">
-                                            ${formatPrice(product.oldPrice)}
-                                        </span>
-                                    `
-                                    : ""
-                            }
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            `;
-
-        }
+                </div>
 
 
-        /* =========================
-           OPEN PRODUCT
-        ========================= */
+                <h2>
+                    ${product.name}
+                </h2>
 
-        function openProduct(product) {
 
-            if (!product) {
-                return;
-            }
+                <div class="price">
 
-            currentProduct = product;
+                    ${formatPrice(product.price)}
 
-            currentGalleryIndex = 0;
-
-            detailQty = 1;
-
-            productModalTitle.textContent =
-                product.name;
-
-            detailName.textContent =
-                product.name;
-
-            detailPrice.innerHTML =
-                formatPrice(product.price) +
-                (
-                    product.oldPrice
+                    ${
+                        product.oldPrice
                         ? `
-                            <span class="detail-old-price">
+                            <span class="old-price">
                                 ${formatPrice(product.oldPrice)}
                             </span>
                         `
                         : ""
-                );
+                    }
 
-            detailDescription.textContent =
-                product.description;
-
-
-            /* STOCK */
-
-            if (product.stock <= 0) {
-
-                detailStock.textContent =
-                    "Нет в наличии";
-
-            } else if (product.stock <= 3) {
-
-                detailStock.textContent =
-                    "Осталось: " +
-                    product.stock;
-
-            } else {
-
-                detailStock.textContent =
-                    "В наличии: " +
-                    product.stock;
-
-            }
+                </div>
 
 
-            updateDetailQuantity();
+                <div class="product-stock">
+                    ${
+                        soldOut
+                        ? "Товар закончился"
+                        : lowStock
+                            ? `Осталось ${product.stock} шт.`
+                            : `В наличии: ${product.stock} шт.`
+                    }
+                </div>
 
-            renderGallery();
 
-            productModal.classList.add("active");
+                <button
+                    onclick="openProduct(${product.id})"
+                    ${soldOut ? "disabled" : ""}
+                >
+                    ${
+                        soldOut
+                        ? "Нет в наличии"
+                        : "Подробнее"
+                    }
+                </button>
 
-            document.body.style.overflow =
-                "hidden";
+            `;
+
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+    /* =========================
+       PRODUCT MODAL
+    ========================= */
+
+    function openProduct(id) {
+
+        const product =
+            products.find(p => p.id === id);
+
+        if (!product) return;
+
+
+        currentProduct = product;
+
+        modalQuantity = 1;
+
+
+        document.getElementById("modalName")
+            .textContent = product.name;
+
+        document.getElementById("modalImage")
+            .src = product.gallery
+                ? product.gallery[0]
+                : product.image;
+
+        document.getElementById("modalDescription")
+            .textContent = product.description;
+
+        document.getElementById("modalPrice")
+            .textContent = formatPrice(product.price);
+
+        document.getElementById("modalQuantity")
+            .textContent = modalQuantity;
+
+
+        const stockElement =
+            document.getElementById("modalStock");
+
+        const addButton =
+            document.getElementById("modalAddButton");
+
+
+        if (product.stock <= 0) {
+
+            stockElement.textContent =
+                "Нет в наличии";
+
+            addButton.disabled = true;
+            addButton.textContent =
+                "Нет в наличии";
+
+            addButton.style.background =
+                "#292933";
+
+        } else {
+
+            stockElement.textContent =
+                `В наличии: ${product.stock} шт.`;
+
+            addButton.disabled = false;
+            addButton.textContent =
+                "В корзину";
+
+            addButton.style.background =
+                "#a855f7";
 
         }
 
 
-        /* =========================
-           CLOSE PRODUCT
-        ========================= */
+        document
+            .getElementById("productModal")
+            .classList.add("active");
 
-        function closeProduct() {
+    }
 
-            productModal.classList.remove(
-                "active"
+
+    function closeProductModal() {
+
+        document
+            .getElementById("productModal")
+            .classList.remove("active");
+
+        currentProduct = null;
+
+    }
+
+
+    function changeModalQuantity(change) {
+
+        if (!currentProduct) return;
+
+
+        modalQuantity += change;
+
+
+        if (modalQuantity < 1) {
+            modalQuantity = 1;
+        }
+
+
+        if (
+            modalQuantity >
+            currentProduct.stock
+        ) {
+            modalQuantity =
+                currentProduct.stock;
+        }
+
+
+        document.getElementById("modalQuantity")
+            .textContent = modalQuantity;
+
+    }
+
+
+    /* =========================
+       ADD TO CART
+    ========================= */
+
+    function addCurrentProductToCart() {
+
+        if (!currentProduct) return;
+
+        if (currentProduct.stock <= 0) return;
+
+
+        const existing =
+            cart.find(
+                item => item.id === currentProduct.id
             );
 
-            document.body.style.overflow =
-                "";
 
-            currentProduct = null;
+        if (existing) {
 
-        }
-
-
-        /* =========================
-           GALLERY
-        ========================= */
-
-        function renderGallery() {
-
-            if (!currentProduct) {
-                return;
-            }
-
-            const gallery =
-                currentProduct.gallery &&
-                currentProduct.gallery.length
-                    ? currentProduct.gallery
-                    : [currentProduct.image];
-
-
-            galleryTrack.innerHTML =
-                gallery.map(
-                    image => `
-                        <div class="gallery-slide">
-                            <img
-                                src="${image}"
-                                alt="${currentProduct.name}"
-                            >
-                        </div>
-                    `
-                ).join("");
-
-
-            galleryDots.innerHTML =
-                gallery.map(
-                    (_, index) => `
-                        <span
-                            class="gallery-dot ${
-                                index === 0
-                                    ? "active"
-                                    : ""
-                            }"
-                        ></span>
-                    `
-                ).join("");
-
-
-            updateGallery();
-
-        }
-
-
-        function updateGallery() {
-
-            galleryTrack.style.transform =
-                `translateX(-${
-                    currentGalleryIndex * 100
-                }%)`;
-
-
-            document
-                .querySelectorAll(".gallery-dot")
-                .forEach(
-                    (dot, index) => {
-
-                        dot.classList.toggle(
-                            "active",
-                            index ===
-                                currentGalleryIndex
-                        );
-
-                    }
-                );
-
-        }
-
-
-        function nextGallery() {
-
-            if (!currentProduct) {
-                return;
-            }
-
-            const length =
-                currentProduct.gallery.length;
-
-            currentGalleryIndex =
-                (
-                    currentGalleryIndex + 1
-                ) % length;
-
-            updateGallery();
-
-        }
-
-
-        function prevGallery() {
-
-            if (!currentProduct) {
-                return;
-            }
-
-            const length =
-                currentProduct.gallery.length;
-
-            currentGalleryIndex =
-                (
-                    currentGalleryIndex - 1 + length
-                ) % length;
-
-            updateGallery();
-
-        }
-
-
-        /* =========================
-           DETAIL QUANTITY
-        ========================= */
-
-        function updateDetailQuantity() {
-
-            detailQuantity.textContent =
-                detailQty;
+            existing.quantity += modalQuantity;
 
 
             if (
-                !currentProduct ||
-                currentProduct.stock <= 0
+                existing.quantity >
+                currentProduct.stock
             ) {
 
-                addToCartButton.disabled =
-                    true;
-
-                addToCartButton.textContent =
-                    "Нет в наличии";
-
-                detailMinus.disabled = true;
-
-                detailPlus.disabled = true;
-
-                return;
+                existing.quantity =
+                    currentProduct.stock;
 
             }
 
+        } else {
 
-            addToCartButton.disabled =
-                false;
-
-            addToCartButton.textContent =
-                "Добавить в корзину";
-
-
-            detailMinus.disabled =
-                detailQty <= 1;
-
-            detailPlus.disabled =
-                detailQty >=
-                currentProduct.stock;
+            cart.push({
+                id: currentProduct.id,
+                quantity: modalQuantity
+            });
 
         }
 
 
-        detailMinus.addEventListener(
-            "click",
-            () => {
+        saveCart();
 
-                if (detailQty > 1) {
+        updateCartCount();
 
-                    detailQty--;
-
-                    updateDetailQuantity();
-
-                }
-
-            }
+        showToast(
+            `${currentProduct.name} добавлен в корзину`
         );
 
+        closeProductModal();
 
-        detailPlus.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    currentProduct &&
-                    detailQty <
-                        currentProduct.stock
-                ) {
-
-                    detailQty++;
-
-                    updateDetailQuantity();
-
-                }
-
-            }
-        );
+    }
 
 
-        /* =========================
-           ADD TO CART
-        ========================= */
+    /* =========================
+       OPEN CART
+    ========================= */
 
-        addToCartButton.addEventListener(
-            "click",
-            () => {
+    function openCart() {
 
-                if (
-                    !currentProduct ||
-                    currentProduct.stock <= 0
-                ) {
-                    return;
-                }
+        validateCartStock();
 
+        saveCart();
 
-                const existing =
-                    cart.find(
-                        item =>
-                            item.productId ===
-                            currentProduct.id
-                    );
+        renderCart();
+
+        document
+            .getElementById("cartModal")
+            .classList.add("active");
+
+    }
 
 
-                if (existing) {
+    function closeCart() {
 
-                    existing.quantity =
-                        Math.min(
-                            existing.quantity +
-                                detailQty,
-                            currentProduct.stock
-                        );
+        document
+            .getElementById("cartModal")
+            .classList.remove("active");
 
-                } else {
-
-                    cart.push({
-
-                        productId:
-                            currentProduct.id,
-
-                        quantity:
-                            detailQty
-
-                    });
-
-                }
+    }
 
 
-                saveCart();
+    /* =========================
+       RENDER CART
+    ========================= */
 
-                updateCartCount();
+    function renderCart() {
 
-                cartCount.classList.remove(
-                    "bump"
-                );
-
-                void cartCount.offsetWidth;
-
-                cartCount.classList.add(
-                    "bump"
-                );
-
-                showToast(
-                    "Товар добавлен в корзину 🛒"
-                );
+        const container =
+            document.getElementById("cartContent");
 
 
-                setTimeout(
-                    closeProduct,
-                    300
-                );
+        if (cart.length === 0) {
 
-            }
-        );
+            container.innerHTML = `
 
+                <div class="cart-empty">
 
-        /* =========================
-           CART COUNT
-        ========================= */
+                    <div class="cart-empty-icon">
+                        🛒
+                    </div>
 
-        function updateCartCount() {
+                    <div>
+                        Корзина пуста
+                    </div>
 
-            const total =
-                cart.reduce(
-                    (sum, item) =>
-                        sum + item.quantity,
-                    0
-                );
+                    <div
+                        style="
+                            margin-top:7px;
+                            font-size:12px;
+                        "
+                    >
+                        Добавь что-нибудь из магазина
+                    </div>
 
-            cartCount.textContent =
-                total;
+                </div>
 
-            cartCount.style.display =
-                total > 0
-                    ? "flex"
-                    : "none";
+            `;
+
+            return;
 
         }
 
 
-        /* =========================
-           RENDER CART
-        ========================= */
+        let html = `
 
-        function renderCart() {
+            <button
+                class="clear-cart"
+                onclick="clearCart()"
+                style="
+                    display:block;
+                    margin-left:auto;
+                    margin-bottom:10px;
+                "
+            >
+                Очистить корзину
+            </button>
 
-            if (cart.length === 0) {
+        `;
 
-                cartItems.innerHTML = `
 
-                    <div class="cart-empty">
+        cart.forEach(item => {
 
-                        <div class="cart-empty-icon">
-                            🛒
+            const product =
+                products.find(
+                    p => p.id === item.id
+                );
+
+            if (!product) return;
+
+
+            const itemTotal =
+                product.price *
+                item.quantity;
+
+
+            html += `
+
+                <div class="cart-item">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+
+
+                    <div class="cart-item-info">
+
+                        <div class="cart-item-name">
+                            ${product.name}
                         </div>
 
-                        <div class="cart-empty-title">
-                            Корзина пуста
+                        <div class="cart-item-price">
+                            ${formatPrice(product.price)} / шт.
                         </div>
 
-                        <div class="cart-empty-text">
-                            Добавь что-нибудь,
-                            что тебе понравится.
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="changeCartQuantity(${product.id}, -1)"
+                                ${item.quantity <= 1 ? "disabled" : ""}
+                            >
+                                −
+                            </button>
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+                            <button
+                                onclick="changeCartQuantity(${product.id}, 1)"
+                                ${
+                                    item.quantity >= product.stock
+                                    ? "disabled"
+                                    : ""
+                                }
+                            >
+                                +
+                            </button>
+
                         </div>
 
                     </div>
 
-                `;
 
-                cartFooter.style.display =
-                    "none";
+                    <div class="cart-item-right">
 
-                return;
-
-            }
-
-
-            cartFooter.style.display =
-                "block";
-
-
-            cartItems.innerHTML =
-                cart.map(item => {
-
-                    const product =
-                        getProductById(
-                            item.productId
-                        );
-
-
-                    if (!product) {
-                        return "";
-                    }
-
-
-                    return `
-
-                        <div
-                            class="cart-item"
-                            data-id="${product.id}"
-                        >
-
-                            <div class="cart-item-image">
-
-                                <img
-                                    src="${product.image}"
-                                    alt="${product.name}"
-                                >
-
-                            </div>
-
-
-                            <div class="cart-item-info">
-
-                                <div class="cart-item-name">
-                                    ${product.name}
-                                </div>
-
-                                <div class="cart-item-price">
-                                    ${formatPrice(product.price)}
-                                </div>
-
-                            </div>
-
-
-                            <div class="cart-item-actions">
-
-                                <div class="cart-quantity">
-
-                                    <button
-                                        onclick="changeCartQuantity(
-                                            ${product.id},
-                                            -1
-                                        )"
-                                    >
-                                        −
-                                    </button>
-
-                                    <span>
-                                        ${item.quantity}
-                                    </span>
-
-                                    <button
-                                        onclick="changeCartQuantity(
-                                            ${product.id},
-                                            1
-                                        )"
-                                    >
-                                        +
-                                    </button>
-
-                                </div>
-
-
-                                <button
-                                    class="remove-item"
-                                    onclick="removeFromCart(
-                                        ${product.id}
-                                    )"
-                                >
-                                    ×
-                                </button>
-
-                            </div>
-
+                        <div class="cart-item-total">
+                            ${formatPrice(itemTotal)}
                         </div>
 
-                    `;
+                        <button
+                            class="remove-item"
+                            onclick="removeFromCart(${product.id})"
+                        >
+                            Удалить
+                        </button>
 
-                }).join("");
+                    </div>
+
+                </div>
+
+            `;
+
+        });
 
 
-            updateCartTotal();
+        const subtotal =
+            calculateSubtotal();
 
-        }
+        const discount =
+            calculateDiscount(subtotal);
+
+        const total =
+            subtotal - discount;
 
 
-        /* =========================
-           CHANGE CART QUANTITY
-        ========================= */
+        html += `
 
-        function changeCartQuantity(
-            productId,
-            change
-        ) {
+            <div class="promo">
 
-            const index =
-                cart.findIndex(
-                    item =>
-                        item.productId ===
-                        productId
+                <input
+                    id="promoInput"
+                    type="text"
+                    placeholder="Промокод"
+                    value="${promoCode}"
+                >
+
+                <button onclick="applyPromo()">
+                    Применить
+                </button>
+
+            </div>
+
+
+            <div
+                id="promoMessage"
+                class="promo-message"
+            ></div>
+
+
+            <div class="cart-summary">
+
+                <div class="summary-row">
+
+                    <span>
+                        Товары
+                    </span>
+
+                    <span>
+                        ${formatPrice(subtotal)}
+                    </span>
+
+                </div>
+
+
+                ${
+                    discount > 0
+                    ? `
+                        <div class="summary-row discount">
+
+                            <span>
+                                Скидка
+                            </span>
+
+                            <span>
+                                −${formatPrice(discount)}
+                            </span>
+
+                        </div>
+                    `
+                    : ""
+                }
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Итого
+                    </span>
+
+                    <span>
+                        ${formatPrice(total)}
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="checkout-button"
+                    onclick="checkout()"
+                >
+                    Оформить заказ
+                </button>
+
+            </div>
+
+        `;
+
+
+        container.innerHTML = html;
+
+
+        if (promoCode) {
+
+            const message =
+                document.getElementById(
+                    "promoMessage"
                 );
 
+            if (promoDiscount > 0) {
 
-            if (index === -1) {
-                return;
-            }
+                message.textContent =
+                    `Промокод применён: −${promoDiscount}%`;
 
-
-            const product =
-                getProductById(productId);
-
-
-            if (!product) {
-                return;
-            }
-
-
-            cart[index].quantity += change;
-
-
-            if (cart[index].quantity <= 0) {
-
-                cart.splice(index, 1);
-
-            } else {
-
-                cart[index].quantity =
-                    Math.min(
-                        cart[index].quantity,
-                        product.stock
-                    );
+                message.className =
+                    "promo-message promo-success";
 
             }
-
-
-            saveCart();
-
-            updateCartCount();
-
-            renderCart();
 
         }
 
+    }
 
-        /* =========================
-           REMOVE
-        ========================= */
 
-        function removeFromCart(productId) {
+    /* =========================
+       CHANGE CART QUANTITY
+    ========================= */
+
+    function changeCartQuantity(
+        productId,
+        change
+    ) {
+
+        const item =
+            cart.find(
+                item => item.id === productId
+            );
+
+        const product =
+            products.find(
+                p => p.id === productId
+            );
+
+
+        if (!item || !product) return;
+
+
+        item.quantity += change;
+
+
+        if (item.quantity <= 0) {
 
             cart =
                 cart.filter(
-                    item =>
-                        item.productId !==
-                        productId
-                );
-
-
-            saveCart();
-
-            updateCartCount();
-
-            renderCart();
-
-        }
-
-
-        /* =========================
-           TOTAL
-        ========================= */
-
-        function updateCartTotal() {
-
-            let total =
-                cart.reduce(
-                    (sum, item) => {
-
-                        const product =
-                            getProductById(
-                                item.productId
-                            );
-
-                        if (!product) {
-                            return sum;
-                        }
-
-                        return sum +
-                            product.price *
-                            item.quantity;
-
-                    },
-                    0
-                );
-
-
-            if (promoApplied) {
-
-                total *= 0.9;
-
-            }
-
-
-            totalPrice.textContent =
-                formatPrice(
-                    Math.round(total)
+                    item => item.id !== productId
                 );
 
         }
 
 
-        /* =========================
-           PROMO
-        ========================= */
+        if (
+            item &&
+            item.quantity > product.stock
+        ) {
 
-        promoButton.addEventListener(
-            "click",
-            () => {
-
-                const code =
-                    promoInput.value
-                        .trim()
-                        .toUpperCase();
-
-
-                if (code === "FIRST") {
-
-                    promoApplied = true;
-
-                    promoMessage.textContent =
-                        "Промокод применён — скидка 10%";
-
-                    updateCartTotal();
-
-                    return;
-
-                }
-
-
-                promoApplied = false;
-
-                promoMessage.textContent =
-                    "Такого промокода нет.";
-
-                updateCartTotal();
-
-            }
-        );
-
-
-        /* =========================
-           OPEN CART
-        ========================= */
-
-        function openCart() {
-
-            renderCart();
-
-            cartModal.classList.add(
-                "active"
-            );
-
-            document.body.style.overflow =
-                "hidden";
+            item.quantity =
+                product.stock;
 
         }
 
 
-        function closeCart() {
-
-            cartModal.classList.remove(
-                "active"
-            );
-
-            document.body.style.overflow =
-                "";
-
-        }
-
-
-        /* =========================
-           SEARCH
-        ========================= */
-
-        searchButton.addEventListener(
-            "click",
-            () => {
-
-                searchWrapper.classList.toggle(
-                    "active"
-                );
-
-
-                if (
-                    searchWrapper.classList.contains(
-                        "active"
-                    )
-                ) {
-
-                    setTimeout(
-                        () =>
-                            searchInput.focus(),
-                        100
-                    );
-
-                } else {
-
-                    searchInput.value = "";
-
-                    renderProducts();
-
-                }
-
-            }
-        );
-
-
-        searchInput.addEventListener(
-            "input",
-            renderProducts
-        );
-
-
-        /* =========================
-           SORT
-        ========================= */
-
-        sortSelect.addEventListener(
-            "change",
-            renderProducts
-        );
-
-
-        /* =========================
-           CATEGORIES
-        ========================= */
-
-        document
-            .querySelectorAll(".category")
-            .forEach(button => {
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        document
-                            .querySelectorAll(
-                                ".category"
-                            )
-                            .forEach(
-                                item =>
-                                    item.classList.remove(
-                                        "active"
-                                    )
-                            );
-
-
-                        button.classList.add(
-                            "active"
-                        );
-
-
-                        currentCategory =
-                            button.dataset.category;
-
-
-                        renderProducts();
-
-                    }
-                );
-
-            });
-
-
-        /* =========================
-           BUTTON EVENTS
-        ========================= */
-
-        cartButton.addEventListener(
-            "click",
-            openCart
-        );
-
-
-        closeProductModal.addEventListener(
-            "click",
-            closeProduct
-        );
-
-
-        closeCartModal.addEventListener(
-            "click",
-            closeCart
-        );
-
-
-        galleryNext.addEventListener(
-            "click",
-            nextGallery
-        );
-
-
-        galleryPrev.addEventListener(
-            "click",
-            prevGallery
-        );
-
-
-        productModal.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target ===
-                    productModal
-                ) {
-
-                    closeProduct();
-
-                }
-
-            }
-        );
-
-
-        cartModal.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target ===
-                    cartModal
-                ) {
-
-                    closeCart();
-
-                }
-
-            }
-        );
-
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (event.key === "Escape") {
-
-                    closeProduct();
-
-                    closeCart();
-
-                }
-
-            }
-        );
-
-
-        /* =========================
-           SWIPE GALLERY
-        ========================= */
-
-        let touchStartX = 0;
-
-        let touchEndX = 0;
-
-
-        galleryTrack.addEventListener(
-            "touchstart",
-            event => {
-
-                touchStartX =
-                    event.changedTouches[0].screenX;
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        galleryTrack.addEventListener(
-            "touchend",
-            event => {
-
-                touchEndX =
-                    event.changedTouches[0].screenX;
-
-
-                const difference =
-                    touchStartX -
-                    touchEndX;
-
-
-                if (Math.abs(difference) < 40) {
-                    return;
-                }
-
-
-                if (difference > 0) {
-
-                    nextGallery();
-
-                } else {
-
-                    prevGallery();
-
-                }
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        /* =========================
-           CHECK CART AGAINST STOCK
-        ========================= */
-
-        function validateCartStock() {
-
-            cart =
-                cart.filter(item => {
-
-                    const product =
-                        getProductById(
-                            item.productId
-                        );
-
-                    if (!product) {
-                        return false;
-                    }
-
-
-                    if (product.stock <= 0) {
-                        return false;
-                    }
-
-
-                    item.quantity =
-                        Math.min(
-                            item.quantity,
-                            product.stock
-                        );
-
-
-                    return item.quantity > 0;
-
-                });
-
-
-            saveCart();
-
-        }
-
-
-        /* =========================
-           INITIAL LOAD
-        ========================= */
-
-        validateCartStock();
+        saveCart();
 
         updateCartCount();
 
+        renderCart();
 
-        setTimeout(
-            () => {
+    }
 
-                renderProducts();
+
+    /* =========================
+       REMOVE ITEM
+    ========================= */
+
+    function removeFromCart(productId) {
+
+        cart =
+            cart.filter(
+                item => item.id !== productId
+            );
+
+
+        saveCart();
+
+        updateCartCount();
+
+        renderCart();
+
+        showToast("Товар удалён");
+
+    }
+
+
+    /* =========================
+       CLEAR CART
+    ========================= */
+
+    function clearCart() {
+
+        if (cart.length === 0) return;
+
+
+        cart = [];
+
+        promoCode = "";
+        promoDiscount = 0;
+
+
+        saveCart();
+
+        updateCartCount();
+
+        renderCart();
+
+        showToast("Корзина очищена");
+
+    }
+
+
+    /* =========================
+       TOTAL
+    ========================= */
+
+    function calculateSubtotal() {
+
+        return cart.reduce(
+            (sum, item) => {
+
+                const product =
+                    products.find(
+                        p => p.id === item.id
+                    );
+
+                if (!product) {
+                    return sum;
+                }
+
+                return sum +
+                    product.price *
+                    item.quantity;
 
             },
-            450
+            0
         );
 
-    </script>
+    }
+
+
+    /* =========================
+       PROMO
+    ========================= */
+
+    function applyPromo() {
+
+        const input =
+            document.getElementById(
+                "promoInput"
+            );
+
+        if (!input) return;
+
+
+        const code =
+            input.value
+                .trim()
+                .toUpperCase();
+
+
+        const message =
+            document.getElementById(
+                "promoMessage"
+            );
+
+
+        /*
+            ТЕСТОВЫЙ ПРОМОКОД
+
+            FIRST = скидка 10%
+
+            Позже подключим настоящую
+            систему промокодов через backend.
+        */
+
+        if (code === "FIRST") {
+
+            promoCode = code;
+            promoDiscount = 10;
+
+
+            message.textContent =
+                "Промокод применён: −10%";
+
+            message.className =
+                "promo-message promo-success";
+
+
+            renderCart();
+
+
+        } else {
+
+            promoCode = "";
+            promoDiscount = 0;
+
+
+            message.textContent =
+                "Такого промокода нет";
+
+            message.className =
+                "promo-message promo-error";
+
+        }
+
+    }
+
+
+    function calculateDiscount(subtotal) {
+
+        if (!promoDiscount) {
+            return 0;
+        }
+
+        return Math.round(
+            subtotal *
+            promoDiscount /
+            100
+        );
+
+    }
+
+
+    /* =========================
+       CHECKOUT
+    ========================= */
+
+    function checkout() {
+
+        if (cart.length === 0) {
+
+            showToast(
+                "Корзина пуста"
+            );
+
+            return;
+
+        }
+
+
+        validateCartStock();
+
+        saveCart();
+
+
+        if (cart.length === 0) {
+
+            renderCart();
+
+            showToast(
+                "Товары закончились"
+            );
+
+            return;
+
+        }
+
+
+        const subtotal =
+            calculateSubtotal();
+
+        const discount =
+            calculateDiscount(subtotal);
+
+        const total =
+            subtotal - discount;
+
+
+        let orderText =
+            "Новый заказ\n\n";
+
+
+        cart.forEach(item => {
+
+            const product =
+                products.find(
+                    p => p.id === item.id
+                );
+
+            if (!product) return;
+
+
+            orderText +=
+                `${product.name} × ${item.quantity} — ` +
+                `${formatPrice(
+                    product.price *
+                    item.quantity
+                )}\n`;
+
+        });
+
+
+        orderText +=
+            `\nТовары: ${formatPrice(subtotal)}`;
+
+
+        if (discount > 0) {
+
+            orderText +=
+                `\nСкидка: −${formatPrice(discount)}`;
+
+        }
+
+
+        orderText +=
+            `\nИтого: ${formatPrice(total)}`;
+
+
+        /*
+            Пока реального оформления нет.
+
+            Здесь позже подключим:
+            - данные покупателя
+            - адрес/доставку
+            - отправку заказа боту
+            - MySklad
+            - оплату
+        */
+
+
+        alert(
+            "Оформление заказа\n\n" +
+            orderText +
+            "\n\nСистема оформления пока находится в разработке."
+        );
+
+    }
+
+
+    /* =========================
+       FORMAT PRICE
+    ========================= */
+
+    function formatPrice(price) {
+
+        return new Intl.NumberFormat(
+            "ru-RU"
+        ).format(price) + " ₽";
+
+    }
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    let toastTimer;
+
+
+    function showToast(text) {
+
+        const toast =
+            document.getElementById("toast");
+
+
+        toast.textContent = text;
+
+        toast.classList.add("show");
+
+
+        clearTimeout(toastTimer);
+
+
+        toastTimer =
+            setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 1800);
+
+    }
+
+
+    /* =========================
+       CLOSE OUTSIDE
+    ========================= */
+
+    function closeModalOutside(event) {
+
+        if (
+            event.target.id ===
+            "productModal"
+        ) {
+
+            closeProductModal();
+
+        }
+
+    }
+
+
+    function closeCartOutside(event) {
+
+        if (
+            event.target.id ===
+            "cartModal"
+        ) {
+
+            closeCart();
+
+        }
+
+    }
+
+
+    /* =========================
+       ESC
+    ========================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
+
+                closeProductModal();
+
+                closeCart();
+
+            }
+
+        }
+    );
+
+
+    /* =========================
+       INIT
+    ========================= */
+
+    loadCart();
+
+    renderProducts();
+
+</script>
 
 </body>
 </html>
