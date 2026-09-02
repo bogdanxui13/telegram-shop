@@ -205,7 +205,7 @@ const products = [
         price: 2890,
         stock: 20,
 
-        category: "cat1",
+        category: "cat5",
         popularity: 79,
 
         sale: false,
@@ -230,7 +230,7 @@ const products = [
         price: 6490,
         stock: 6,
 
-        category: "cat2",
+        category: "cat6",
         popularity: 93,
 
         sale: false,
