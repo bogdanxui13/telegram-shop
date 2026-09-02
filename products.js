@@ -51,9 +51,9 @@ const products = [
 
     {
         id: 3,
-        name: "МАТЬ ПОЛЕВА",
-        price: 100000004,
-        stock: 1,
+        name: "Pink Edition",
+        price: 3990,
+        stock: 12,
 
         category: "cat3",
         popularity: 91,
@@ -205,7 +205,7 @@ const products = [
         price: 2890,
         stock: 20,
 
-        category: "cat5",
+        category: "cat1",
         popularity: 79,
 
         sale: false,
@@ -230,7 +230,7 @@ const products = [
         price: 6490,
         stock: 6,
 
-        category: "cat6",
+        category: "cat2",
         popularity: 93,
 
         sale: false,
