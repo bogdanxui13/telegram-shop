@@ -1,79 +1,124 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>MY STORE</title>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
+
     <style>
+
         * {
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
             padding: 18px;
+
             font-family: Arial, sans-serif;
+
             background: #0b0b0f;
             color: #fff;
         }
 
+
         button,
-        input {
+        input,
+        select {
+
             font-family: inherit;
         }
+
 
         button {
             cursor: pointer;
         }
+
 
         /* =========================
            HEADER
         ========================= */
 
         header {
+
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             gap: 15px;
+
             margin-bottom: 25px;
         }
 
+
         .logo-block h1 {
+
             margin: 0;
+
             font-size: 25px;
+
             letter-spacing: 2px;
         }
+
 
         .logo-block p {
+
             margin: 4px 0 0;
+
             color: #777;
+
             font-size: 11px;
+
             letter-spacing: 2px;
         }
 
+
         .cart-button {
+
             position: relative;
+
             width: 48px;
             height: 48px;
+
             border: 1px solid #292933;
+
             border-radius: 14px;
+
             background: #15151c;
+
             color: #fff;
+
             font-size: 21px;
+
             transition: .2s;
         }
 
+
         .cart-button:hover {
+
             border-color: #a855f7;
+
             transform: translateY(-2px);
         }
 
+
         .cart-count {
+
             position: absolute;
+
             top: -6px;
             right: -6px;
 
@@ -83,74 +128,102 @@
             padding: 0 5px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 20px;
+
             background: #a855f7;
+
             color: white;
 
             font-size: 11px;
+
             font-weight: bold;
         }
 
+
         .cart-count.hidden {
+
             display: none;
         }
+
 
         /* =========================
            SEARCH
         ========================= */
 
         .search {
-            display: flex;
-            gap: 10px;
+
             margin-bottom: 18px;
         }
 
+
         .search input {
+
             width: 100%;
+
             padding: 14px 16px;
 
             border: 1px solid #292933;
+
             border-radius: 13px;
 
             background: #15151c;
+
             color: #fff;
 
             outline: none;
+
             font-size: 15px;
+
+            transition: .2s;
         }
 
+
         .search input:focus {
+
             border-color: #a855f7;
         }
+
 
         /* =========================
            CATEGORIES
         ========================= */
 
         .categories {
+
             display: flex;
+
             gap: 8px;
+
             overflow-x: auto;
+
             padding-bottom: 5px;
+
             margin-bottom: 15px;
         }
 
+
         .categories::-webkit-scrollbar {
+
             display: none;
         }
 
+
         .category {
+
             flex: 0 0 auto;
 
             padding: 9px 15px;
 
             border: 1px solid #292933;
+
             border-radius: 20px;
 
             background: #15151c;
+
             color: #aaa;
 
             font-size: 13px;
@@ -158,49 +231,77 @@
             transition: .2s;
         }
 
-        .category.active {
-            background: #a855f7;
+
+        .category:hover {
+
             border-color: #a855f7;
             color: #fff;
         }
+
+
+        .category.active {
+
+            background: #a855f7;
+
+            border-color: #a855f7;
+
+            color: #fff;
+        }
+
 
         /* =========================
            SORT
         ========================= */
 
         .sort-row {
+
             display: flex;
+
             justify-content: flex-end;
+
             margin-bottom: 18px;
         }
 
+
         .sort-select {
+
             padding: 9px 12px;
 
             border: 1px solid #292933;
+
             border-radius: 10px;
 
             background: #15151c;
+
             color: #aaa;
 
             outline: none;
         }
+
 
         /* =========================
            PRODUCTS
         ========================= */
 
         .products {
+
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
             gap: 12px;
         }
 
+
         .product {
+
             position: relative;
 
             background: #121218;
+
             border: 1px solid #20202a;
+
             border-radius: 16px;
 
             padding: 8px;
@@ -208,48 +309,72 @@
             overflow: hidden;
 
             animation: productAppear .35s ease;
+
             transition: .2s;
         }
 
+
         .product:hover {
+
             transform: translateY(-3px);
+
             border-color: #363642;
         }
 
+
         @keyframes productAppear {
+
             from {
+
                 opacity: 0;
+
                 transform: translateY(10px);
             }
 
             to {
+
                 opacity: 1;
+
                 transform: translateY(0);
             }
+
         }
+
 
         .product-image {
+
             position: relative;
+
+            cursor: pointer;
         }
 
+
         .product img {
+
             width: 100%;
+
             height: 230px;
 
             display: block;
 
             object-fit: cover;
+
             border-radius: 12px;
 
             transition: .3s;
         }
 
+
         .product:hover img {
+
             transform: scale(1.02);
         }
 
+
         .sale-badge {
+
             position: absolute;
+
             top: 8px;
             left: 8px;
 
@@ -258,14 +383,19 @@
             border-radius: 8px;
 
             background: #a855f7;
+
             color: white;
 
             font-size: 10px;
+
             font-weight: bold;
         }
 
+
         .stock-badge {
+
             position: absolute;
+
             bottom: 8px;
             left: 8px;
 
@@ -274,25 +404,35 @@
             border-radius: 8px;
 
             background: rgba(0,0,0,.75);
+
             color: #ddd;
 
             font-size: 10px;
         }
 
+
         .sold-out {
+
             opacity: .65;
         }
 
+
         .sold-out img {
+
             filter: grayscale(1);
+
             opacity: .55;
         }
 
+
         .sold-overlay {
+
             position: absolute;
+
             inset: 0;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -301,104 +441,144 @@
             background: rgba(0,0,0,.35);
 
             font-size: 13px;
+
             font-weight: bold;
+
             letter-spacing: 1px;
         }
 
+
         .product h2 {
+
             margin: 10px 3px 4px;
 
             font-size: 15px;
+
             line-height: 1.2;
         }
 
+
         .price {
+
             margin: 0 3px 2px;
 
             font-size: 16px;
+
             font-weight: bold;
         }
 
+
         .old-price {
+
             margin-left: 5px;
 
             color: #666;
+
             text-decoration: line-through;
+
             font-size: 12px;
+
             font-weight: normal;
         }
 
+
         .product-stock {
+
             margin: 0 3px 9px;
 
             color: #777;
+
             font-size: 11px;
         }
 
+
         .product button {
+
             width: 100%;
 
             padding: 10px;
 
             border: 0;
+
             border-radius: 10px;
 
             background: #a855f7;
+
             color: white;
 
             font-size: 13px;
+
             font-weight: bold;
 
             transition: .2s;
         }
 
+
         .product button:hover {
+
             background: #9333ea;
         }
 
+
         .product button:disabled {
+
             background: #292933;
+
             color: #666;
+
             cursor: not-allowed;
         }
+
 
         /* =========================
            NO RESULTS
         ========================= */
 
         .no-results {
+
             display: none;
 
             padding: 50px 20px;
 
             text-align: center;
+
             color: #666;
         }
+
 
         /* =========================
            MODAL
         ========================= */
 
         .modal {
+
             position: fixed;
+
             inset: 0;
 
             z-index: 100;
 
             display: none;
+
             align-items: flex-end;
             justify-content: center;
 
             background: rgba(0,0,0,.72);
         }
 
+
         .modal.active {
+
             display: flex;
         }
 
+
         .modal-content {
+
             width: 100%;
+
             max-width: 600px;
+
             max-height: 92vh;
 
             overflow-y: auto;
@@ -412,84 +592,123 @@
             animation: modalUp .25s ease;
         }
 
+
         @keyframes modalUp {
+
             from {
+
                 transform: translateY(100%);
             }
 
             to {
+
                 transform: translateY(0);
             }
+
         }
 
+
         .modal-top {
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
             margin-bottom: 15px;
         }
 
+
         .modal-top h2 {
+
             margin: 0;
+
             font-size: 20px;
         }
 
+
         .close {
+
             width: 36px;
             height: 36px;
 
             border: 0;
+
             border-radius: 10px;
 
             background: #20202a;
+
             color: #fff;
 
             font-size: 20px;
         }
+
 
         /* =========================
            CART
         ========================= */
 
         .cart-header {
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
             margin-bottom: 18px;
         }
 
+
         .cart-header h2 {
+
             margin: 0;
         }
 
+
         .clear-cart {
+
             border: 0;
+
             background: none;
+
             color: #777;
+
             font-size: 12px;
         }
 
+
         .clear-cart:hover {
+
             color: #ff5c5c;
         }
 
+
         .cart-empty {
+
             padding: 45px 15px;
 
             text-align: center;
+
             color: #666;
         }
 
+
         .cart-empty-icon {
+
             margin-bottom: 10px;
+
             font-size: 42px;
         }
 
+
         .cart-item {
+
             display: grid;
-            grid-template-columns: 70px 1fr auto;
+
+            grid-template-columns:
+                70px 1fr auto;
 
             gap: 12px;
 
@@ -498,7 +717,9 @@
             border-bottom: 1px solid #24242d;
         }
 
+
         .cart-item img {
+
             width: 70px;
             height: 85px;
 
@@ -507,88 +728,128 @@
             border-radius: 10px;
         }
 
+
         .cart-item-info {
+
             min-width: 0;
         }
 
+
         .cart-item-name {
+
             margin-bottom: 5px;
 
             font-size: 14px;
+
             font-weight: bold;
         }
 
+
         .cart-item-price {
+
             margin-bottom: 8px;
 
             color: #aaa;
+
             font-size: 13px;
         }
 
+
         .quantity {
+
             display: flex;
+
             align-items: center;
+
             gap: 8px;
         }
 
+
         .quantity button {
+
             width: 28px;
             height: 28px;
 
             border: 1px solid #30303a;
+
             border-radius: 8px;
 
             background: #191921;
+
             color: white;
 
             font-size: 16px;
         }
 
+
         .quantity button:disabled {
+
             opacity: .35;
+
             cursor: not-allowed;
         }
 
+
         .quantity span {
+
             min-width: 20px;
+
             text-align: center;
+
             font-size: 13px;
         }
 
+
         .cart-item-right {
+
             text-align: right;
         }
 
+
         .cart-item-total {
+
             margin-bottom: 8px;
 
             font-size: 14px;
+
             font-weight: bold;
         }
 
+
         .remove-item {
+
             border: 0;
+
             background: none;
+
             color: #777;
+
             font-size: 11px;
         }
 
+
         .remove-item:hover {
+
             color: #ff5c5c;
         }
+
 
         /* =========================
            PROMO
         ========================= */
 
         .promo {
+
             display: flex;
+
             gap: 8px;
 
             margin-top: 18px;
         }
 
+
         .promo input {
+
             flex: 1;
 
             min-width: 0;
@@ -596,25 +857,33 @@
             padding: 12px;
 
             border: 1px solid #292933;
+
             border-radius: 10px;
 
             background: #15151c;
+
             color: white;
 
             outline: none;
         }
 
+
         .promo button {
+
             padding: 0 15px;
 
             border: 0;
+
             border-radius: 10px;
 
             background: #292933;
+
             color: white;
         }
 
+
         .promo-message {
+
             min-height: 17px;
 
             margin-top: 7px;
@@ -622,76 +891,103 @@
             font-size: 11px;
         }
 
+
         .promo-success {
+
             color: #6ee7b7;
         }
 
+
         .promo-error {
+
             color: #ff6b6b;
         }
+
 
         /* =========================
            TOTAL
         ========================= */
 
         .cart-summary {
+
             margin-top: 20px;
+
             padding-top: 16px;
 
             border-top: 1px solid #292933;
         }
 
+
         .summary-row {
+
             display: flex;
+
             justify-content: space-between;
 
             margin-bottom: 9px;
 
             color: #999;
+
             font-size: 13px;
         }
 
+
         .summary-row.discount {
+
             color: #6ee7b7;
         }
 
+
         .summary-total {
+
             display: flex;
+
             justify-content: space-between;
 
             margin-top: 15px;
 
             font-size: 20px;
+
             font-weight: bold;
         }
 
+
         .checkout-button {
+
             width: 100%;
 
             margin-top: 18px;
+
             padding: 14px;
 
             border: 0;
+
             border-radius: 12px;
 
             background: #a855f7;
+
             color: white;
 
             font-size: 15px;
+
             font-weight: bold;
 
             transition: .2s;
         }
 
+
         .checkout-button:hover {
+
             background: #9333ea;
         }
+
 
         /* =========================
            TOAST
         ========================= */
 
         .toast {
+
             position: fixed;
 
             left: 50%;
@@ -699,13 +995,15 @@
 
             z-index: 300;
 
-            transform: translate(-50%, 100px);
+            transform:
+                translate(-50%, 100px);
 
             padding: 12px 17px;
 
             border-radius: 12px;
 
             background: #22222b;
+
             color: white;
 
             font-size: 13px;
@@ -715,10 +1013,15 @@
             transition: .3s;
         }
 
+
         .toast.show {
-            transform: translate(-50%, 0);
+
+            transform:
+                translate(-50%, 0);
+
             opacity: 1;
         }
+
 
         /* =========================
            DESKTOP
@@ -727,47 +1030,84 @@
         @media (min-width: 900px) {
 
             body {
+
                 max-width: 1400px;
+
                 margin: auto;
+
                 padding: 30px;
             }
 
+
             .products {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+
+                grid-template-columns:
+                    repeat(4, minmax(0, 1fr));
             }
 
+
             .product img {
+
                 height: 300px;
             }
 
+
             .modal {
+
                 align-items: center;
             }
 
+
             .modal-content {
+
                 border-radius: 22px;
+
                 max-height: 90vh;
             }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
     <div class="logo-block">
+
         <h1>MY STORE</h1>
-        <p>CLOTHING & ACCESSORIES</p>
+
+        <p>
+            CLOTHING & ACCESSORIES
+        </p>
+
     </div>
 
-    <button class="cart-button" onclick="openCart()">
+
+    <button
+        class="cart-button"
+        onclick="openCart()"
+    >
+
         🛒
-        <span id="cartCount" class="cart-count hidden">0</span>
+
+        <span
+            id="cartCount"
+            class="cart-count hidden"
+        >
+            0
+        </span>
+
     </button>
 
 </header>
 
+
+<!-- SEARCH -->
 
 <div class="search">
 
@@ -781,31 +1121,53 @@
 </div>
 
 
+<!-- CATEGORIES -->
+
 <div class="categories">
 
-    <div class="categories">
-
-    <button class="category active" onclick="setCategory('all', this)">
+    <button
+        class="category active"
+        onclick="setCategory('all', this)"
+    >
         ВСЕ
     </button>
 
-    <button class="category" onclick="setCategory('cat1', this)">
+
+    <button
+        class="category"
+        onclick="setCategory('cat1', this)"
+    >
         1
     </button>
 
-    <button class="category" onclick="setCategory('cat2', this)">
+
+    <button
+        class="category"
+        onclick="setCategory('cat2', this)"
+    >
         2
     </button>
 
-    <button class="category" onclick="setCategory('cat3', this)">
+
+    <button
+        class="category"
+        onclick="setCategory('cat3', this)"
+    >
         3
     </button>
 
-    <button class="category" onclick="setCategory('cat4', this)">
+
+    <button
+        class="category"
+        onclick="setCategory('cat4', this)"
+    >
         4
     </button>
 
 </div>
+
+
+<!-- SORT -->
 
 <div class="sort-row">
 
@@ -814,19 +1176,45 @@
         class="sort-select"
         onchange="renderProducts()"
     >
-        <option value="popular">Популярные</option>
-        <option value="cheap">Сначала дешевле</option>
-        <option value="expensive">Сначала дороже</option>
+
+        <option value="popular">
+            Популярные
+        </option>
+
+        <option value="cheap">
+            Сначала дешевле
+        </option>
+
+        <option value="expensive">
+            Сначала дороже
+        </option>
+
     </select>
 
 </div>
 
 
-<div id="products" class="products"></div>
+<!-- PRODUCTS -->
 
-<div id="noResults" class="no-results">
-    <div style="font-size:35px;">🔎</div>
-    <p>Ничего не найдено</p>
+<div
+    id="products"
+    class="products"
+></div>
+
+
+<div
+    id="noResults"
+    class="no-results"
+>
+
+    <div style="font-size:35px;">
+        🔎
+    </div>
+
+    <p>
+        Ничего не найдено
+    </p>
+
 </div>
 
 
@@ -842,9 +1230,11 @@
 
     <div class="modal-content">
 
+
         <div class="modal-top">
 
             <h2 id="modalName"></h2>
+
 
             <button
                 class="close"
@@ -854,6 +1244,7 @@
             </button>
 
         </div>
+
 
         <img
             id="modalImage"
@@ -865,6 +1256,7 @@
             "
         >
 
+
         <div
             id="modalDescription"
             style="
@@ -875,6 +1267,7 @@
             "
         ></div>
 
+
         <div
             id="modalPrice"
             style="
@@ -884,6 +1277,7 @@
             "
         ></div>
 
+
         <div
             id="modalStock"
             style="
@@ -892,6 +1286,7 @@
                 font-size:12px;
             "
         ></div>
+
 
         <div
             style="
@@ -905,19 +1300,26 @@
 
             <div class="quantity">
 
-                <button onclick="changeModalQuantity(-1)">
+                <button
+                    onclick="changeModalQuantity(-1)"
+                >
                     −
                 </button>
+
 
                 <span id="modalQuantity">
                     1
                 </span>
 
-                <button onclick="changeModalQuantity(1)">
+
+                <button
+                    onclick="changeModalQuantity(1)"
+                >
                     +
                 </button>
 
             </div>
+
 
             <button
                 id="modalAddButton"
@@ -954,9 +1356,13 @@
 
     <div class="modal-content">
 
+
         <div class="cart-header">
 
-            <h2>Корзина</h2>
+            <h2>
+                Корзина
+            </h2>
+
 
             <button
                 class="close"
@@ -975,12 +1381,16 @@
 </div>
 
 
-<div id="toast" class="toast">
+<div
+    id="toast"
+    class="toast"
+>
     Товар добавлен в корзину
 </div>
 
 
 <script src="products.js"></script>
+
 
 <script>
 
@@ -988,9 +1398,11 @@
        TELEGRAM
     ========================= */
 
-    const tg = window.Telegram.WebApp;
+    const tg =
+        window.Telegram.WebApp;
 
     tg.ready();
+
     tg.expand();
 
 
@@ -1019,10 +1431,17 @@
 
         try {
 
-            const savedCart = localStorage.getItem("myStoreCart");
+            const savedCart =
+                localStorage.getItem(
+                    "myStoreCart"
+                );
+
 
             if (savedCart) {
-                cart = JSON.parse(savedCart);
+
+                cart =
+                    JSON.parse(savedCart);
+
             }
 
         } catch (error) {
@@ -1031,11 +1450,13 @@
 
         }
 
+
         validateCartStock();
 
         saveCart();
 
         updateCartCount();
+
     }
 
 
@@ -1061,21 +1482,33 @@
 
         cart = cart.filter(item => {
 
-            const product = products.find(
-                p => p.id === item.id
-            );
+            const product =
+                products.find(
+                    p => p.id === item.id
+                );
+
 
             if (!product) {
+
                 return false;
             }
+
 
             if (product.stock <= 0) {
+
                 return false;
             }
 
-            if (item.quantity > product.stock) {
-                item.quantity = product.stock;
+
+            if (
+                item.quantity >
+                product.stock
+            ) {
+
+                item.quantity =
+                    product.stock;
             }
+
 
             return true;
 
@@ -1090,19 +1523,35 @@
 
     function updateCartCount() {
 
-        const count = cart.reduce(
-            (sum, item) => sum + item.quantity,
-            0
-        );
+        const count =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.quantity,
+                0
+            );
 
-        const badge = document.getElementById("cartCount");
+
+        const badge =
+            document.getElementById(
+                "cartCount"
+            );
+
 
         badge.textContent = count;
 
+
         if (count > 0) {
-            badge.classList.remove("hidden");
+
+            badge.classList.remove(
+                "hidden"
+            );
+
         } else {
-            badge.classList.add("hidden");
+
+            badge.classList.add(
+                "hidden"
+            );
+
         }
 
     }
@@ -1112,15 +1561,28 @@
        CATEGORY
     ========================= */
 
-    function setCategory(category, button) {
+    function setCategory(
+        category,
+        button
+    ) {
 
-        currentCategory = category;
+        currentCategory =
+            category;
+
 
         document
             .querySelectorAll(".category")
-            .forEach(btn => btn.classList.remove("active"));
+            .forEach(btn =>
+                btn.classList.remove(
+                    "active"
+                )
+            );
 
-        button.classList.add("active");
+
+        button.classList.add(
+            "active"
+        );
+
 
         renderProducts();
 
@@ -1128,64 +1590,98 @@
 
 
     /* =========================
-       RENDER PRODUCTS
+       SEARCH + PRODUCTS
     ========================= */
 
     function renderProducts() {
 
         const container =
-            document.getElementById("products");
+            document.getElementById(
+                "products"
+            );
+
 
         const noResults =
-            document.getElementById("noResults");
+            document.getElementById(
+                "noResults"
+            );
+
 
         const search =
             document
-                .getElementById("searchInput")
+                .getElementById(
+                    "searchInput"
+                )
                 .value
                 .toLowerCase()
                 .trim();
 
+
         const sort =
-            document.getElementById("sortSelect").value;
+            document.getElementById(
+                "sortSelect"
+            ).value;
 
 
-        let filtered = products.filter(product => {
+        let filtered =
+            products.filter(product => {
 
-            const categoryMatch =
-                currentCategory === "all" ||
-                product.category === currentCategory;
 
-            const searchMatch =
-                !search ||
-                product.name.toLowerCase().includes(search) ||
-                product.description.toLowerCase().includes(search);
+                const categoryMatch =
+                    currentCategory === "all" ||
+                    product.category ===
+                        currentCategory;
 
-            return categoryMatch && searchMatch;
 
-        });
+                const searchMatch =
+                    !search ||
+                    product.name
+                        .toLowerCase()
+                        .includes(search) ||
 
+                    product.description
+                        .toLowerCase()
+                        .includes(search);
+
+
+                return (
+                    categoryMatch &&
+                    searchMatch
+                );
+
+            });
+
+
+        /* SORT */
 
         if (sort === "popular") {
 
             filtered.sort(
-                (a, b) => b.popularity - a.popularity
+                (a, b) =>
+                    b.popularity -
+                    a.popularity
             );
 
         }
+
 
         if (sort === "cheap") {
 
             filtered.sort(
-                (a, b) => a.price - b.price
+                (a, b) =>
+                    a.price -
+                    b.price
             );
 
         }
 
+
         if (sort === "expensive") {
 
             filtered.sort(
-                (a, b) => b.price - a.price
+                (a, b) =>
+                    b.price -
+                    a.price
             );
 
         }
@@ -1196,14 +1692,16 @@
 
         if (filtered.length === 0) {
 
-            noResults.style.display = "block";
+            noResults.style.display =
+                "block";
 
             return;
 
         }
 
 
-        noResults.style.display = "none";
+        noResults.style.display =
+            "none";
 
 
         filtered.forEach(product => {
@@ -1211,28 +1709,45 @@
             const soldOut =
                 product.stock <= 0;
 
+
             const lowStock =
                 product.stock > 0 &&
                 product.stock <= 3;
 
 
-            let stockText = "В НАЛИЧИИ";
+            let stockText =
+                "В НАЛИЧИИ";
+
 
             if (soldOut) {
-                stockText = "НЕТ В НАЛИЧИИ";
+
+                stockText =
+                    "НЕТ В НАЛИЧИИ";
+
             }
 
+
             if (lowStock) {
-                stockText = `ОСТАЛОСЬ ${product.stock}`;
+
+                stockText =
+                    `ОСТАЛОСЬ ${product.stock}`;
+
             }
 
 
             const card =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             card.className =
                 "product" +
-                (soldOut ? " sold-out" : "");
+                (
+                    soldOut
+                        ? " sold-out"
+                        : ""
+                );
 
 
             card.innerHTML = `
@@ -1247,22 +1762,31 @@
                         alt="${product.name}"
                     >
 
+
                     ${
                         product.sale
-                        ? `<div class="sale-badge">SALE</div>`
-                        : ""
+                            ? `
+                                <div class="sale-badge">
+                                    SALE
+                                </div>
+                              `
+                            : ""
                     }
+
 
                     <div class="stock-badge">
                         ${stockText}
                     </div>
 
+
                     ${
                         soldOut
-                        ? `<div class="sold-overlay">
-                                НЕТ В НАЛИЧИИ
-                           </div>`
-                        : ""
+                            ? `
+                                <div class="sold-overlay">
+                                    НЕТ В НАЛИЧИИ
+                                </div>
+                              `
+                            : ""
                     }
 
                 </div>
@@ -1275,29 +1799,37 @@
 
                 <div class="price">
 
-                    ${formatPrice(product.price)}
+                    ${formatPrice(
+                        product.price
+                    )}
 
                     ${
                         product.oldPrice
-                        ? `
-                            <span class="old-price">
-                                ${formatPrice(product.oldPrice)}
-                            </span>
-                        `
-                        : ""
+                            ? `
+                                <span class="old-price">
+                                    ${formatPrice(
+                                        product.oldPrice
+                                    )}
+                                </span>
+                              `
+                            : ""
                     }
 
                 </div>
 
 
                 <div class="product-stock">
+
                     ${
                         soldOut
-                        ? "Товар закончился"
-                        : lowStock
-                            ? `Осталось ${product.stock} шт.`
-                            : `В наличии: ${product.stock} шт.`
+                            ? "Товар закончился"
+
+                            : lowStock
+                                ? `Осталось ${product.stock} шт.`
+
+                                : `В наличии: ${product.stock} шт.`
                     }
+
                 </div>
 
 
@@ -1305,17 +1837,21 @@
                     onclick="openProduct(${product.id})"
                     ${soldOut ? "disabled" : ""}
                 >
+
                     ${
                         soldOut
-                        ? "Нет в наличии"
-                        : "Подробнее"
+                            ? "Нет в наличии"
+                            : "Подробнее"
                     }
+
                 </button>
 
             `;
 
 
-            container.appendChild(card);
+            container.appendChild(
+                card
+            );
 
         });
 
@@ -1329,39 +1865,65 @@
     function openProduct(id) {
 
         const product =
-            products.find(p => p.id === id);
+            products.find(
+                p => p.id === id
+            );
+
 
         if (!product) return;
 
 
-        currentProduct = product;
+        currentProduct =
+            product;
+
 
         modalQuantity = 1;
 
 
-        document.getElementById("modalName")
-            .textContent = product.name;
+        document.getElementById(
+            "modalName"
+        ).textContent =
+            product.name;
 
-        document.getElementById("modalImage")
-            .src = product.gallery
+
+        document.getElementById(
+            "modalImage"
+        ).src =
+            product.gallery
                 ? product.gallery[0]
                 : product.image;
 
-        document.getElementById("modalDescription")
-            .textContent = product.description;
 
-        document.getElementById("modalPrice")
-            .textContent = formatPrice(product.price);
+        document.getElementById(
+            "modalDescription"
+        ).textContent =
+            product.description;
 
-        document.getElementById("modalQuantity")
-            .textContent = modalQuantity;
+
+        document.getElementById(
+            "modalPrice"
+        ).textContent =
+            formatPrice(
+                product.price
+            );
+
+
+        document.getElementById(
+            "modalQuantity"
+        ).textContent =
+            modalQuantity;
 
 
         const stockElement =
-            document.getElementById("modalStock");
+            document.getElementById(
+                "modalStock"
+            );
+
 
         const addButton =
-            document.getElementById("modalAddButton");
+            document.getElementById(
+                "modalAddButton"
+            );
 
 
         if (product.stock <= 0) {
@@ -1369,9 +1931,14 @@
             stockElement.textContent =
                 "Нет в наличии";
 
-            addButton.disabled = true;
+
+            addButton.disabled =
+                true;
+
+
             addButton.textContent =
                 "Нет в наличии";
+
 
             addButton.style.background =
                 "#292933";
@@ -1381,9 +1948,14 @@
             stockElement.textContent =
                 `В наличии: ${product.stock} шт.`;
 
-            addButton.disabled = false;
+
+            addButton.disabled =
+                false;
+
+
             addButton.textContent =
                 "В корзину";
+
 
             addButton.style.background =
                 "#a855f7";
@@ -1392,8 +1964,12 @@
 
 
         document
-            .getElementById("productModal")
-            .classList.add("active");
+            .getElementById(
+                "productModal"
+            )
+            .classList.add(
+                "active"
+            );
 
     }
 
@@ -1401,24 +1977,36 @@
     function closeProductModal() {
 
         document
-            .getElementById("productModal")
-            .classList.remove("active");
+            .getElementById(
+                "productModal"
+            )
+            .classList.remove(
+                "active"
+            );
 
-        currentProduct = null;
+
+        currentProduct =
+            null;
 
     }
 
 
-    function changeModalQuantity(change) {
+    function changeModalQuantity(
+        change
+    ) {
 
-        if (!currentProduct) return;
+        if (!currentProduct)
+            return;
 
 
-        modalQuantity += change;
+        modalQuantity +=
+            change;
 
 
         if (modalQuantity < 1) {
+
             modalQuantity = 1;
+
         }
 
 
@@ -1426,13 +2014,17 @@
             modalQuantity >
             currentProduct.stock
         ) {
+
             modalQuantity =
                 currentProduct.stock;
+
         }
 
 
-        document.getElementById("modalQuantity")
-            .textContent = modalQuantity;
+        document.getElementById(
+            "modalQuantity"
+        ).textContent =
+            modalQuantity;
 
     }
 
@@ -1443,20 +2035,28 @@
 
     function addCurrentProductToCart() {
 
-        if (!currentProduct) return;
+        if (!currentProduct)
+            return;
 
-        if (currentProduct.stock <= 0) return;
+
+        if (
+            currentProduct.stock <= 0
+        )
+            return;
 
 
         const existing =
             cart.find(
-                item => item.id === currentProduct.id
+                item =>
+                    item.id ===
+                    currentProduct.id
             );
 
 
         if (existing) {
 
-            existing.quantity += modalQuantity;
+            existing.quantity +=
+                modalQuantity;
 
 
             if (
@@ -1472,8 +2072,13 @@
         } else {
 
             cart.push({
-                id: currentProduct.id,
-                quantity: modalQuantity
+
+                id:
+                    currentProduct.id,
+
+                quantity:
+                    modalQuantity
+
             });
 
         }
@@ -1483,9 +2088,11 @@
 
         updateCartCount();
 
+
         showToast(
             `${currentProduct.name} добавлен в корзину`
         );
+
 
         closeProductModal();
 
@@ -1502,11 +2109,18 @@
 
         saveCart();
 
+        updateCartCount();
+
         renderCart();
 
+
         document
-            .getElementById("cartModal")
-            .classList.add("active");
+            .getElementById(
+                "cartModal"
+            )
+            .classList.add(
+                "active"
+            );
 
     }
 
@@ -1514,8 +2128,12 @@
     function closeCart() {
 
         document
-            .getElementById("cartModal")
-            .classList.remove("active");
+            .getElementById(
+                "cartModal"
+            )
+            .classList.remove(
+                "active"
+            );
 
     }
 
@@ -1527,7 +2145,9 @@
     function renderCart() {
 
         const container =
-            document.getElementById("cartContent");
+            document.getElementById(
+                "cartContent"
+            );
 
 
         if (cart.length === 0) {
@@ -1540,9 +2160,11 @@
                         🛒
                     </div>
 
+
                     <div>
                         Корзина пуста
                     </div>
+
 
                     <div
                         style="
@@ -1586,7 +2208,9 @@
                     p => p.id === item.id
                 );
 
-            if (!product) return;
+
+            if (!product)
+                return;
 
 
             const itemTotal =
@@ -1610,8 +2234,10 @@
                             ${product.name}
                         </div>
 
+
                         <div class="cart-item-price">
-                            ${formatPrice(product.price)} / шт.
+                            ${formatPrice(product.price)}
+                            / шт.
                         </div>
 
 
@@ -1619,21 +2245,28 @@
 
                             <button
                                 onclick="changeCartQuantity(${product.id}, -1)"
-                                ${item.quantity <= 1 ? "disabled" : ""}
+                                ${
+                                    item.quantity <= 1
+                                        ? "disabled"
+                                        : ""
+                                }
                             >
                                 −
                             </button>
+
 
                             <span>
                                 ${item.quantity}
                             </span>
 
+
                             <button
                                 onclick="changeCartQuantity(${product.id}, 1)"
                                 ${
-                                    item.quantity >= product.stock
-                                    ? "disabled"
-                                    : ""
+                                    item.quantity >=
+                                    product.stock
+                                        ? "disabled"
+                                        : ""
                                 }
                             >
                                 +
@@ -1649,6 +2282,7 @@
                         <div class="cart-item-total">
                             ${formatPrice(itemTotal)}
                         </div>
+
 
                         <button
                             class="remove-item"
@@ -1669,11 +2303,16 @@
         const subtotal =
             calculateSubtotal();
 
+
         const discount =
-            calculateDiscount(subtotal);
+            calculateDiscount(
+                subtotal
+            );
+
 
         const total =
-            subtotal - discount;
+            subtotal -
+            discount;
 
 
         html += `
@@ -1687,7 +2326,10 @@
                     value="${promoCode}"
                 >
 
-                <button onclick="applyPromo()">
+
+                <button
+                    onclick="applyPromo()"
+                >
                     Применить
                 </button>
 
@@ -1708,6 +2350,7 @@
                         Товары
                     </span>
 
+
                     <span>
                         ${formatPrice(subtotal)}
                     </span>
@@ -1717,20 +2360,20 @@
 
                 ${
                     discount > 0
-                    ? `
-                        <div class="summary-row discount">
+                        ? `
+                            <div class="summary-row discount">
 
-                            <span>
-                                Скидка
-                            </span>
+                                <span>
+                                    Скидка
+                                </span>
 
-                            <span>
-                                −${formatPrice(discount)}
-                            </span>
+                                <span>
+                                    −${formatPrice(discount)}
+                                </span>
 
-                        </div>
-                    `
-                    : ""
+                            </div>
+                          `
+                        : ""
                 }
 
 
@@ -1739,6 +2382,7 @@
                     <span>
                         Итого
                     </span>
+
 
                     <span>
                         ${formatPrice(total)}
@@ -1759,7 +2403,8 @@
         `;
 
 
-        container.innerHTML = html;
+        container.innerHTML =
+            html;
 
 
         if (promoCode) {
@@ -1769,10 +2414,12 @@
                     "promoMessage"
                 );
 
+
             if (promoDiscount > 0) {
 
                 message.textContent =
                     `Промокод применён: −${promoDiscount}%`;
+
 
                 message.className =
                     "promo-message promo-success";
@@ -1785,7 +2432,7 @@
 
 
     /* =========================
-       CHANGE CART QUANTITY
+       CART QUANTITY
     ========================= */
 
     function changeCartQuantity(
@@ -1795,26 +2442,35 @@
 
         const item =
             cart.find(
-                item => item.id === productId
+                item =>
+                    item.id ===
+                    productId
             );
+
 
         const product =
             products.find(
-                p => p.id === productId
+                p =>
+                    p.id ===
+                    productId
             );
 
 
-        if (!item || !product) return;
+        if (!item || !product)
+            return;
 
 
-        item.quantity += change;
+        item.quantity +=
+            change;
 
 
         if (item.quantity <= 0) {
 
             cart =
                 cart.filter(
-                    item => item.id !== productId
+                    item =>
+                        item.id !==
+                        productId
                 );
 
         }
@@ -1822,7 +2478,8 @@
 
         if (
             item &&
-            item.quantity > product.stock
+            item.quantity >
+                product.stock
         ) {
 
             item.quantity =
@@ -1841,14 +2498,18 @@
 
 
     /* =========================
-       REMOVE ITEM
+       REMOVE
     ========================= */
 
-    function removeFromCart(productId) {
+    function removeFromCart(
+        productId
+    ) {
 
         cart =
             cart.filter(
-                item => item.id !== productId
+                item =>
+                    item.id !==
+                    productId
             );
 
 
@@ -1858,23 +2519,29 @@
 
         renderCart();
 
-        showToast("Товар удалён");
+
+        showToast(
+            "Товар удалён"
+        );
 
     }
 
 
     /* =========================
-       CLEAR CART
+       CLEAR
     ========================= */
 
     function clearCart() {
 
-        if (cart.length === 0) return;
+        if (cart.length === 0)
+            return;
 
 
         cart = [];
 
+
         promoCode = "";
+
         promoDiscount = 0;
 
 
@@ -1884,13 +2551,16 @@
 
         renderCart();
 
-        showToast("Корзина очищена");
+
+        showToast(
+            "Корзина очищена"
+        );
 
     }
 
 
     /* =========================
-       TOTAL
+       SUBTOTAL
     ========================= */
 
     function calculateSubtotal() {
@@ -1900,16 +2570,24 @@
 
                 const product =
                     products.find(
-                        p => p.id === item.id
+                        p =>
+                            p.id ===
+                            item.id
                     );
 
+
                 if (!product) {
+
                     return sum;
+
                 }
 
-                return sum +
+
+                return (
+                    sum +
                     product.price *
-                    item.quantity;
+                    item.quantity
+                );
 
             },
             0
@@ -1929,7 +2607,9 @@
                 "promoInput"
             );
 
-        if (!input) return;
+
+        if (!input)
+            return;
 
 
         const code =
@@ -1944,23 +2624,19 @@
             );
 
 
-        /*
-            ТЕСТОВЫЙ ПРОМОКОД
-
-            FIRST = скидка 10%
-
-            Позже подключим настоящую
-            систему промокодов через backend.
-        */
-
         if (code === "FIRST") {
 
-            promoCode = code;
-            promoDiscount = 10;
+            promoCode =
+                code;
+
+
+            promoDiscount =
+                10;
 
 
             message.textContent =
                 "Промокод применён: −10%";
+
 
             message.className =
                 "promo-message promo-success";
@@ -1968,15 +2644,16 @@
 
             renderCart();
 
-
         } else {
 
             promoCode = "";
+
             promoDiscount = 0;
 
 
             message.textContent =
                 "Такого промокода нет";
+
 
             message.className =
                 "promo-message promo-error";
@@ -1986,11 +2663,16 @@
     }
 
 
-    function calculateDiscount(subtotal) {
+    function calculateDiscount(
+        subtotal
+    ) {
 
         if (!promoDiscount) {
+
             return 0;
+
         }
+
 
         return Math.round(
             subtotal *
@@ -2039,11 +2721,16 @@
         const subtotal =
             calculateSubtotal();
 
+
         const discount =
-            calculateDiscount(subtotal);
+            calculateDiscount(
+                subtotal
+            );
+
 
         const total =
-            subtotal - discount;
+            subtotal -
+            discount;
 
 
         let orderText =
@@ -2054,10 +2741,14 @@
 
             const product =
                 products.find(
-                    p => p.id === item.id
+                    p =>
+                        p.id ===
+                        item.id
                 );
 
-            if (!product) return;
+
+            if (!product)
+                return;
 
 
             orderText +=
@@ -2086,18 +2777,6 @@
             `\nИтого: ${formatPrice(total)}`;
 
 
-        /*
-            Пока реального оформления нет.
-
-            Здесь позже подключим:
-            - данные покупателя
-            - адрес/доставку
-            - отправку заказа боту
-            - MySklad
-            - оплату
-        */
-
-
         alert(
             "Оформление заказа\n\n" +
             orderText +
@@ -2108,7 +2787,7 @@
 
 
     /* =========================
-       FORMAT PRICE
+       PRICE
     ========================= */
 
     function formatPrice(price) {
@@ -2130,21 +2809,31 @@
     function showToast(text) {
 
         const toast =
-            document.getElementById("toast");
+            document.getElementById(
+                "toast"
+            );
 
 
-        toast.textContent = text;
+        toast.textContent =
+            text;
 
-        toast.classList.add("show");
+
+        toast.classList.add(
+            "show"
+        );
 
 
-        clearTimeout(toastTimer);
+        clearTimeout(
+            toastTimer
+        );
 
 
         toastTimer =
             setTimeout(() => {
 
-                toast.classList.remove("show");
+                toast.classList.remove(
+                    "show"
+                );
 
             }, 1800);
 
@@ -2152,10 +2841,12 @@
 
 
     /* =========================
-       CLOSE OUTSIDE
+       CLOSE PRODUCT OUTSIDE
     ========================= */
 
-    function closeModalOutside(event) {
+    function closeModalOutside(
+        event
+    ) {
 
         if (
             event.target.id ===
@@ -2169,7 +2860,13 @@
     }
 
 
-    function closeCartOutside(event) {
+    /* =========================
+       CLOSE CART OUTSIDE
+    ========================= */
+
+    function closeCartOutside(
+        event
+    ) {
 
         if (
             event.target.id ===
@@ -2191,7 +2888,10 @@
         "keydown",
         event => {
 
-            if (event.key === "Escape") {
+            if (
+                event.key ===
+                "Escape"
+            ) {
 
                 closeProductModal();
 
@@ -2213,5 +2913,7 @@
 
 </script>
 
+
 </body>
+
 </html>
